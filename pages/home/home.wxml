@@ -1,2 +1,79 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view class='container'>
+<!-- 微信名-认证 -->
+  <view class='head-top'>
+    <view class='wx-head'>
+      <image class='head-img' src='../../images/tx1.png'></image>
+      <text class='wx-name'>微信名</text>
+    </view>
+    <view class='attestation'>
+      去认证
+    </view>
+  </view>
+<!-- banner轮播 -->
+  <view class='banner'>
+    <swiper   autoplay="{{true}}" indicator-dots="{{true}}" indicator-color="rgba(255,255,255,1)"  indicator-active-color="rgba(6,85,155,1)" circular="{{true}}">
+      <block>
+        <swiper-item>
+          <image src="../../images/banner.png" class="slide-image" width="100%" height="150" />
+        </swiper-item>
+        <swiper-item>
+          <image src="../../images/banner.png" class="slide-image" width="100%" height="150" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+<!-- 搜索 -->
+  <view class='search-box'>
+    <image class='search-btn' src='../../images/ss.png'></image>
+    <input class='search' placeholder-class='placeholder' placeholder='点击搜索商品'></input>
+  </view>
+  <!-- 优惠券 -->
+  <view class='discounts'>
+    <image class='discounts-img' src='../../images/yhq.png'></image>
+  </view>
+  <!-- 商品列表 -->
+  <view class='good-list'>
+    <block>
+      <view class='goods-item'>
+        <view class='good-img'><image src='../../images/goods.png'></image></view>
+        <view class='description'>Apple iPhone XR (A2108) 128GB 珊瑚色 移动联通电信4G手机 双卡双待Apple iPhone XR (A2108) 128GB 珊瑚色 移动联通电信4G手机 双卡双待</view>
+        <view class='go-buy'>
+          <view class='points'>
+            <text>50000</text>
+            <text class='points-unit'>积分</text>
+          </view>
+          <view class='add-car'>
+            <image src='../../images/add.png'></image>
+          </view>
+        </view>
+      </view>
+      <view class='goods-item'>
+        <view class='good-img'><image src='../../images/goods.png'></image></view>
+        <view class='description'>Apple iPhone XR (A2108) 128GB 珊瑚色 移动联通电信4G手机 双卡双待Apple iPhone XR (A2108) 128GB 珊瑚色 移动联通电信4G手机 双卡双待</view>
+        <view class='go-buy'>
+          <view class='points'>
+            <text>50000</text>
+            <text class='points-unit'>积分</text>
+          </view>
+          <view class='add-car'>
+            <image src='../../images/add.png'></image>
+          </view>
+        </view>
+      </view>
+      <view class='goods-item'>
+        <view class='good-img'><image src='../../images/goods.png'></image></view>
+        <view class='description'>Apple iPhone XR (A2108) 128GB 珊瑚色 移动联通电信4G手机 双卡双待Apple iPhone XR (A2108) 128GB 珊瑚色 移动联通电信4G手机 双卡双待</view>
+        <view class='go-buy'>
+          <view class='points'>
+            <text>50000</text>
+            <text class='points-unit'>积分</text>
+          </view>
+          <view class='add-car'>
+            <image src='../../images/add.png'></image>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

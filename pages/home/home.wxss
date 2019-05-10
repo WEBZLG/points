@@ -1,1 +1,103 @@
 /* pages/home/home.wxss */
+
+.head-top{
+  display: flex;
+  justify-content: space-between;
+  line-height:50rpx;
+}
+
+.head-img{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-right:20rpx; 
+  display:inline-block;
+  vertical-align:middle;
+}
+
+.attestation{
+  color: #4680B4;
+}
+
+.banner{
+  margin: 30rpx auto;
+}
+
+swiper,
+swiper-item{
+  border-radius: 15rpx;
+  overflow: hidden;
+}
+.search{
+  height:60rpx;
+  border:1px solid #4680B4;
+  border-radius:15rpx;
+}
+.search{
+  padding:0 64rpx 0 24rpx;
+  color: #4680B4;
+  font-size: 28rpx;
+}
+.placeholder{
+  color: #4680B4;
+  font-size:28rpx;
+  text-align: center;
+}
+.search-box{
+  position: relative;
+}
+.search-btn{
+  height: 28rpx;
+  width: 28rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  z-index: 9;
+}
+
+.discounts{
+  height:132rpx;
+  width:100%;
+  border-radius:15rpx;
+  overflow:hidden;
+  margin: 30rpx auto;
+}
+.goods-item{
+  width: 46%;
+  margin-bottom: 30rpx;
+}
+.good-img{
+  height: 330rpx;
+}
+.description{
+width:100%;
+height:90rpx;
+font-size:32rpx;
+color:#444;
+overflow:hidden;
+text-overflow:ellipsis;
+display:-webkit-box;
+-webkit-line-clamp:2;
+-webkit-box-orient:vertical;
+}
+.go-buy{
+  display: flex;
+  justify-content: space-between;
+}
+.add-car{
+  width: 60rpx;
+  height: 32rpx;
+  padding-top:10rpx
+}
+.points{
+  font-size: 36rpx;
+  color: #4680B4;
+}
+.points-unit{
+  font-size: 24rpx;
+}
+.good-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

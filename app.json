@@ -10,28 +10,36 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "龙江银行积分商城",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#000",
-    "selectedColor": "#ccc",
-    "borderStyle": "white",
+    "color": "#444",
+    "selectedColor": "#4680B4",
+    "borderStyle": "black",
     "backgroundColor": "#fff",
     "list": [
-      {
+      { 
+        "selectedIconPath": "images/sy2.png",
+        "iconPath": "images/sy1.png",
         "pagePath": "pages/home/home",
         "text": "首页"
       },
       {
+        "selectedIconPath": "images/fx2.png",
+        "iconPath": "images/fx1.png",
         "pagePath": "pages/discovery/discovery",
         "text": "发现"
       },
       {
+        "selectedIconPath": "images/gwc2.png",
+        "iconPath": "images/gwc1.png",
         "pagePath": "pages/shopping/shopping",
         "text": "购物车"
       },
       {
+        "selectedIconPath": "images/wd2.png",
+        "iconPath": "images/wd1.png",
         "pagePath": "pages/myself/myself",
         "text": "我的"
       }

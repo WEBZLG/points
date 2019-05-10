@@ -1,2 +1,38 @@
 <!--pages/discovery/discovery.wxml-->
-<text>pages/discovery/discovery.wxml</text>
+<view class='container'>
+  <view class='shop-box'>
+    <view class='title'>门店列表</view>
+    <view class='shop-list'>
+      <view class='shop-item'>
+        <view class='shop-img'>
+          <image src='../../images/shop.png'></image>
+        </view>
+        <view class='shop-content'>
+          <view class='shop-title'>凌志手机连锁（新疆大街店）</view>
+          <view class='shop-adr'>黑龙江省哈尔滨市平房区新疆大街117号红旗MALLF1</view>
+          <view class='shop-distance'>
+            <text class='distance-num'>距您321m</text>
+            <view class='next-icon'>
+              <image src='../../images/next.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='shop-item'>
+        <view class='shop-img'>
+          <image src='../../images/shop.png'></image>
+        </view>
+        <view class='shop-content'>
+          <view class='shop-title'>凌志手机连锁（新疆大街店）</view>
+          <view class='shop-adr'>黑龙江省哈尔滨市平房区新疆大街117号红旗MALLF1</view>
+          <view class='shop-distance'>
+            <text class='distance-num'>距您321m</text>
+            <view class='next-icon'>
+              <image src='../../images/next.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

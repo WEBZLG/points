@@ -1,2 +1,41 @@
 <!--pages/shopping/shopping.wxml-->
-<text>pages/shopping/shopping.wxml</text>
+<view class='container'>
+    <view class='shopping-box'>
+        <view class='shopping-sys'>
+            <view class='check'>
+                <view class='check-icon'>
+                    <image src='../../images/all_c.png'></image>
+                    <!-- <image src='../../images/all.png'></image> -->
+                </view>
+                <text>全选</text>
+            </view>
+            <text class='systerm'>管理</text>
+        </view>
+        <view class='goods-list'>
+            <view class='goods-item'>
+                <view class='check-icon'>
+                    <image src='../../images/all_c.png'></image>
+                    <!-- <image src='../../images/all.png'></image> -->
+                </view>
+                <view class='goods-img'>
+                    <image src='../../images/shop.png'></image>
+                </view>
+                <view class='goods-content'>
+                    <view class='description'>Apple iPhone XR (A2108) 128GB 珊瑚色 移动联通电信4G手机 双卡双待</view>
+                    <view class='goods-adr'>黑龙江省哈尔滨市平房区新疆大街117号红旗MALLF1</view>
+                    <view class='go-buy'>
+                        <view class='points'>
+                            <text>50000</text>
+                            <text class='points-unit'>积分</text>
+                        </view>
+                        <view class='add-car'>
+                            <image class='reduce'  src='../../images/reduce_icon.png'></image>
+                            <input class='goods-num'  value='1'></input>
+                            <image class='add'  src='../../images/add_icon.png'></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
