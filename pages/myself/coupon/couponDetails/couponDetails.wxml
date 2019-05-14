@@ -1,0 +1,20 @@
+<!--pages/myself/coupon/couponDetails/couponDetails.wxml-->
+<view class='container'>
+    <view class='details-box'>
+        <view class='details-bg'>
+            <image src='../../../../images/quanbg.png'></image>
+            <view class='content'>
+                <view class='details-img'>
+                    <image src='../../../../images/goods.png'></image>
+                </view>
+                <view class='address'>乐途洗车行（群力店）</view>
+                <view class='price'>200元洗车券</view>
+            </view>
+        </view>
+        <view class='condition'>
+            <view>使用条件：无门槛</view>
+            <view>使用期限：2019.01.01-2019.06.01</view>
+        </view>
+    </view>
+    <view class='useNow'>立即使用</view>
+</view>

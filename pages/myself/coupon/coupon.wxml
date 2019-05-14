@@ -1,0 +1,26 @@
+<!--pages/myself/coupon/coupon.wxml-->
+<view class='container'>
+    <view class='coupon-list'>
+        <view class='coupon-item' catchtap='couponDetails'>
+            <view class='coupon-box'>   
+                <view class='coupon-img'>
+                    <image src='../../../images/goods.png'></image>
+                </view>
+                <view class='coupon'>
+                    <view class='coupon-price'>200元洗车券</view>
+                    <view class='address'>可用商家：乐途洗车行（群力店）</view>
+                    <view class='time'>使用期限：2019.01.01-2019.06.01</view>
+                    <view class='used'>
+                        <image src='../../../images/ygq.png'></image>
+                        <!-- <image src='../../../images/ysy.png'></image> -->
+                    </view>
+                </view>
+            </view>
+            <view class='right-icon'>
+                <image src='../../../images/quan0.png'></image>
+                <!-- <image src='../../../images/quan1.png'></image> -->
+            </view>
+        </view>
+        
+    </view>
+</view>

@@ -1,0 +1,38 @@
+<!--pages/home/search/search.wxml-->
+<view class='container'>
+    <view class='goods-box'>
+        <view class='goods-list'>
+            <view class='goods-item'>
+                <view class='goods-img'>
+                    <image src='../../../images/goods.png'></image>
+                </view>
+                <view class='goods-desc'>
+                    <view class='goods-title'>1Apple iPhone XR (A2108) 128GB 珊瑚色 移动联通电信4G手机 双卡双待</view>
+                    <view class='goods-addr'>黑龙江省哈尔滨市平房区新疆大街117号红旗MALLF1</view>
+                    <view class='goods-point'>
+                        <view class='points'>100000<text class='points-unit'>积分</text></view>
+                        <view class='add-car'>
+                            <image src='../../../images/add.png'></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class='goods-item'>
+                <view class='goods-img'>
+                    <image src='../../../images/goods.png'></image>
+                </view>
+                <view class='goods-desc'>
+                    <view class='goods-title'>1Apple iPhone XR (A2108) 128GB 珊瑚色 移动联通电信4G手机 双卡双待</view>
+                    <view class='goods-addr'>黑龙江省哈尔滨市平房区新疆大街117号红旗MALLF1</view>
+                    <view class='goods-point'>
+                        <view class='points'>100000<text class='points-unit'>积分</text></view>
+                        <view class='add-car'>
+                            <image src='../../../images/add.png'></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+

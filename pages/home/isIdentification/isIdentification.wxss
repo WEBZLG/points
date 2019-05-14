@@ -1,0 +1,33 @@
+/* pages/identification/identification.wxss */
+Page {
+  background: rgba(242, 243, 247, 1);
+}
+
+.ident-box {
+  background: #fff;
+  border-radius: 15rpx;
+  margin: 30rpx auto;
+}
+
+.banner{
+    height: 120rpx;
+    width: 100%;
+}
+.item{
+  display: flex;
+  color:#ababab;
+  align-items:center;
+  padding: 42rpx 28rpx;
+  position: relative;
+  border-bottom: 1px solid #e1e1e1;
+}
+.item:last-child{
+    border-bottom: none;
+}
+.label{
+  width: 210rpx;
+}
+
+.item input {
+	pointer-events: none;
+}

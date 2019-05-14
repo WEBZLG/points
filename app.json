@@ -1,49 +1,55 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/shopping/shopping",
-    "pages/discovery/discovery",
-    "pages/myself/myself",
-    "pages/home/home",
-    "pages/identification/identification"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "龙江银行积分商城",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "color": "#444",
-    "selectedColor": "#4680B4",
-    "borderStyle": "black",
-    "backgroundColor": "#fff",
-    "list": [
-      { 
-        "selectedIconPath": "images/sy2.png",
-        "iconPath": "images/sy1.png",
-        "pagePath": "pages/home/home",
-        "text": "首页"
-      },
-      {
-        "selectedIconPath": "images/fx2.png",
-        "iconPath": "images/fx1.png",
-        "pagePath": "pages/discovery/discovery",
-        "text": "发现"
-      },
-      {
-        "selectedIconPath": "images/gwc2.png",
-        "iconPath": "images/gwc1.png",
-        "pagePath": "pages/shopping/shopping",
-        "text": "购物车"
-      },
-      {
-        "selectedIconPath": "images/wd2.png",
-        "iconPath": "images/wd1.png",
-        "pagePath": "pages/myself/myself",
-        "text": "我的"
-      }
-    ]
-  },
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/index/index",
+        "pages/shopping/shopping",
+        "pages/discovery/discovery",
+        "pages/myself/myself",
+        "pages/home/home",
+        "pages/home/identification/identification",
+        "pages/home/isIdentification/isIdentification",
+        "pages/home/search/search",
+        "pages/myself/coupon/coupon",
+        "pages/myself/coupon/couponDetails/couponDetails",
+        "pages/home/coupon/coupon",
+        "pages/home/coupon/couponDetails/couponDetails"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "龙江银行积分商城",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#444",
+        "selectedColor": "#4680B4",
+        "borderStyle": "black",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "selectedIconPath": "images/sy2.png",
+                "iconPath": "images/sy1.png",
+                "pagePath": "pages/home/home",
+                "text": "首页"
+            },
+            {
+                "selectedIconPath": "images/fx2.png",
+                "iconPath": "images/fx1.png",
+                "pagePath": "pages/discovery/discovery",
+                "text": "发现"
+            },
+            {
+                "selectedIconPath": "images/gwc2.png",
+                "iconPath": "images/gwc1.png",
+                "pagePath": "pages/shopping/shopping",
+                "text": "购物车"
+            },
+            {
+                "selectedIconPath": "images/wd2.png",
+                "iconPath": "images/wd1.png",
+                "pagePath": "pages/myself/myself",
+                "text": "我的"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json"
 }

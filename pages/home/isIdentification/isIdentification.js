@@ -1,34 +1,34 @@
-// pages/myself/myself.js
+// pages/identification/identification.js
+var ajax  = require("../../../utils/ajax.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      classIdentification: "identification-t",//是否认证
-      signText: "签到领取积分",//签到按钮文字
-      signClass:"sign-in"//签到按钮样式
+    isDis:"",
+    codeText:"获取验证码",
+    name:"",
+    idCard:"",
+    phone:"",
+    code:""
   },
-    singIn(e){
-        wx.showToast({
-            title: '积分+100'
-        })
-        this.setData({
-            signText:"已签到",
-            signClass:"signed"
-        })
-    },
-    // 我的优惠券跳转
-    myCoupon(e){
-        wx.navigateTo({
-            url: './coupon/coupon',
-        })
-    },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      var that = this;
+      wx.showLoading();
+      let data = {
+          uid: '1'
+      };
+      ajax.wxRequest('POST', '', data, (res) => {
+          console.log(res.data)
+      }, (err) => {
+          console.log(err.errMsg)
+      })
+      wx.hideLoading();
   },
 
   /**

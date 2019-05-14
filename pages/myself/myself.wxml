@@ -1,2 +1,56 @@
 <!--pages/myself/myself.wxml-->
-<text>pages/myself/myself.wxml</text>
+<view class='container'>
+    <view class='my-box'>
+        <view class='person-message'>
+            <view class='message'>
+                <view class='head-img'>
+                    <image src='../../images/tx1.png'></image> 
+                </view>
+                <view>
+                    <view class='user-name'>积分商城</view>
+                    <view class='user-id'>用户ID：78789798</view>
+                    <view class='user-type'>复核员</view>
+                </view>
+            </view>
+            <view class='{{classIdentification}}'>已认证</view>
+        </view>
+        <view class='nav-list'>
+            <view class='my-list'>
+                <view class='my-title'>
+                    <view class='icon-item'><image src='../../images/wdjf.png'></image></view>
+                    <text>我的积分</text>
+                </view>
+                <view class='point'>100860000</view>
+            </view>
+            <view class='my-list'>
+                <view class='my-title'>
+                    <view class='icon-item'><image src='../../images/wdxs.png'></image></view>
+                    <text>我的下属</text>
+                </view>
+                <view class='next-icon'><image src='../../images/next.png'></image></view>
+            </view>
+            <view class='my-list'>
+                <view class='my-title'>
+                    <view class='icon-item'><image src='../../images/wddd.png'></image></view>
+                    <text>我的订单</text>
+                </view>
+                <view class='next-icon'><image src='../../images/next.png'></image></view>
+            </view>
+            <view class='my-list' catchtap='myCoupon'>
+                <view class='my-title'>
+                    <view class='icon-item'><image src='../../images/wdyhq.png'></image></view>
+                    <text>我的优惠券</text>
+                </view>
+                <view class='next-icon'><image src='../../images/next.png'></image></view>
+            </view>
+            <view class='my-list'>
+                <view class='my-title'>
+                    <view class='icon-item'><image src='../../images/sfrz.png'></image></view>
+                    <text>身份认证</text>
+                </view>
+                <view class='next-icon'><image src='../../images/next.png'></image></view>
+            </view>
+        </view>
+        <view class='{{signClass}}' catchtap='singIn'>{{signText}}</view>
+    </view>
+</view>

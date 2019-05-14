@@ -1,5 +1,5 @@
 // pages/identification/identification.js
-var ajax  = require("../../utils/ajax.js")
+var ajax  = require("../../../utils/ajax.js")
 Page({
 
   /**
@@ -86,7 +86,7 @@ Page({
     var getCode = setInterval(function(){
       index --
       that.setData({
-        codeText:index+"s",
+        codeText:index+"s后重新获取",
         isDis: "disable"
       })
       if(index<=1){
@@ -123,6 +123,9 @@ Page({
 
   // 提交数据
   sendData:function(){
+    wx.redirectTo({
+        url: '../isIdentification/isIdentification',
+    })
     var name = this.data.name;
     var idCard = this.data.idCard;
     var phone = this.data.phone;

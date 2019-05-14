@@ -1,0 +1,46 @@
+/* pages/identification/identification.wxss */
+Page {
+  background: rgba(242, 243, 247, 1);
+}
+
+.ident-box {
+  background: #fff;
+  border-radius: 15rpx;
+  margin: 30rpx auto;
+}
+
+.banner{
+    height: 120rpx;
+    width: 100%;
+}
+.item{
+  display: flex;
+  align-items:center;
+  padding: 42rpx 28rpx;
+  position: relative;
+  border-bottom: 1px solid #e1e1e1;
+}
+.item:last-child{
+    border-bottom: none;
+}
+.label{
+  width: 210rpx;
+}
+.getcode{
+  position: absolute;
+  right: 20rpx;
+  top: 50rpx;
+  z-index: 9;
+}
+.disable {
+	pointer-events: none;
+}
+.submit{
+    margin-top: 30rpx;
+    background-color: #F9BE00;
+    color: #fff;
+    font-weight: bold;
+    padding: 24rpx 0;
+    text-align: center;
+    border-radius: 15rpx;
+}

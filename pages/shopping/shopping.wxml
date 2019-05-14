@@ -1,41 +1,49 @@
 <!--pages/shopping/shopping.wxml-->
 <view class='container'>
-    <view class='shopping-box'>
+    <view class='shopping-box' wx:if="{{goodsList}}">
         <view class='shopping-sys'>
             <view class='check'>
                 <view class='check-icon'>
-                    <image src='../../images/all_c.png'></image>
-                    <!-- <image src='../../images/all.png'></image> -->
+                    <image wx:if="{{selectAllStatus}}" src='../../images/all.png'   catchtap="selectAll"></image>
+                    <image wx:else  src='../../images/all_c.png' catchtap="selectAll"></image>
                 </view>
                 <text>全选</text>
             </view>
-            <text class='systerm'>管理</text>
+            <text class='systerm' catchtap='management'>{{management}}</text>
         </view>
-        <view class='goods-list'>
-            <view class='goods-item'>
+        <view class='goods-list' >
+            <view class='goods-item' wx:for="{{goodsList}}" wx:key="{{index}}">
                 <view class='check-icon'>
-                    <image src='../../images/all_c.png'></image>
-                    <!-- <image src='../../images/all.png'></image> -->
+                    <image  src='../../images/all.png' wx:if="{{item.selected}}"  data-index="{{index}}"   catchtap="selectList"></image>
+                    <image  src='../../images/all_c.png' wx:else data-index="{{index}}" catchtap="selectList"></image>
                 </view>
                 <view class='goods-img'>
-                    <image src='../../images/shop.png'></image>
+                    <image src='{{item.image}}'></image>
                 </view>
                 <view class='goods-content'>
-                    <view class='description'>Apple iPhone XR (A2108) 128GB 珊瑚色 移动联通电信4G手机 双卡双待</view>
-                    <view class='goods-adr'>黑龙江省哈尔滨市平房区新疆大街117号红旗MALLF1</view>
+                    <view class='description'>{{item.title}}</view>
+                    <view class='goods-adr'>{{item.addr}}</view>
                     <view class='go-buy'>
                         <view class='points'>
-                            <text>50000</text>
+                            <text>{{item.price}}</text>
                             <text class='points-unit'>积分</text>
                         </view>
                         <view class='add-car'>
-                            <image class='reduce'  src='../../images/reduce_icon.png'></image>
-                            <input class='goods-num'  value='1'></input>
-                            <image class='add'  src='../../images/add_icon.png'></image>
+                            <image class='reduce'  src='../../images/reduce_icon.png' bindtap="btn_minus"  data-index="{{index}}"></image>
+                            <input class='goods-num'  bindinput='input_num' data-index="{{index}}" disabled='disabled' value='{{item.num}}'></input>
+                            <image class='add'  src='../../images/add_icon.png' bindtap="btn_add" data-index="{{index}}"></image>
                         </view>
                     </view>
                 </view>
             </view>
         </view>
+        <view class='goods-action'>
+            <view class='price-all'>合计：<text>{{totalPrice}}</text><text style='font-size:24rpx;'>积分</text></view>
+            <view class='goods-btn' wx:if="{{btnShow}}">去兑换（{{selectedNum}}）</view>
+            <view class='goods-btn'  wx:else  catchtap='deleteGoods'>删除</view>
+        </view>
     </view>
+    <view wx:else>
+     <view class="list-none">购物车是空的哦~</view>
+  </view>
 </view>

@@ -1,0 +1,57 @@
+/* pages/myself/coupon/couponDetails/couponDetails.wxss */
+
+page {
+    background: rgba(242, 243, 247, 1);
+}
+
+.details-box {
+    padding: 30rpx 0;
+}
+
+.details-bg {
+    height: 296rpx;
+    position: relative;
+    background-color: #fff;
+    border-top-left-radius: 15rpx;
+    border-top-right-radius: 15rpx;
+}
+
+.details-img {
+    height: 120rpx;
+    width: 120rpx;
+    margin: 16px auto;
+    border-radius: 15rpx;
+    overflow: hidden;
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #06559b;
+    font-weight: bold;
+}
+
+.address {
+    font-size: 24rpx;
+    margin-bottom: 10rpx;
+}
+
+.condition {
+    padding: 30rpx;
+    font-size: 24rpx;
+    line-height: 42rpx;
+    background-color: #fff;
+    border-bottom-left-radius: 15rpx;
+    border-bottom-right-radius: 15rpx;
+}
+
+.useNow {
+    color: #fff;
+    padding: 24rpx;
+    border-radius: 15rpx;
+    text-align: center;
+    background-color: #f9be00;
+}

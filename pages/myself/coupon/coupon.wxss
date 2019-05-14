@@ -1,0 +1,51 @@
+/* pages/myself/coupon/coupon.wxss */
+page{
+   background: rgba(242, 243, 247, 1);
+}
+.coupon-list{
+    padding: 30rpx 0;
+}
+.coupon-item{
+    background-color: #fff;
+    border-radius: 15rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:30rpx;
+}
+.right-icon{
+    height: 180rpx;
+    width: 82rpx;
+}
+.coupon-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    line-height:42rpx;
+}
+.coupon-img{
+    height: 120rpx;
+    width: 120rpx;
+    border-radius: 15rpx;
+    overflow: hidden;
+    margin:30rpx;
+}
+.coupon-price{
+    color:#06559B;
+    font-weight:bold;   
+}
+.address,
+.time{
+    font-size: 24rpx;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.used{
+    position:absolute;
+    right:0rpx;
+    top:16rpx;
+    height:148rpx;
+    width:148rpx;
+}
