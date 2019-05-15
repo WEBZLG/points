@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+var ajax = require("../../utils/ajax.js")
 Page({
   data: {
     motto: '积分商城',
@@ -47,7 +47,6 @@ Page({
     }
   },
   getUserInfo: function(e) {
-    console.log(e)
     if (e.detail.errMsg =="getUserInfo:fail auth deny"){
       wx.showToast({
         title: '拒绝授权',
@@ -58,7 +57,19 @@ Page({
       this.setData({
         userInfo: e.detail.userInfo,
         hasUserInfo: true
-      })     
+      })  
+        console.log(app.globalData.userId)
+        var item ={
+            'user_id': app.globalData.userId,
+            'wx_xcx_data': e.detail.rawData
+        } 
+        ajax.wxRequest('POST', 'user/updateInfo', item,
+            (res) => {
+                console.log(res)
+            },
+            (err) => {
+                console.log(err)
+            })
       wx.reLaunch({
         url: '../home/home',
       })

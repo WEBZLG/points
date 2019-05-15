@@ -1,8 +1,9 @@
 //app.js
-
+var ajax = require("./utils/ajax.js")
 App({
   onLaunch: function () {
     // 展示本地存储能力
+    var that = this;
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
@@ -10,7 +11,22 @@ App({
     // 登录
     wx.login({
       success: res => {
+          var item = {
+              code: res.code
+          }
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          ajax.wxRequest('POST', 'login/wx_xcx',item ,
+           (res) => {
+              console.log(res)
+               that.globalData.userId = res.data.id;
+               that.globalData.openId = res.data.openid;
+          }, 
+          (err) => {
+              wx.showToast({
+                  title: err,
+                  icon:"none"
+              })
+          })
       }
     })
     // 获取用户信息
@@ -35,7 +51,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    userId:null,
+    openId:null
   },
   
 })

@@ -3,8 +3,8 @@
     <!-- 微信名-认证 -->
     <view class='head-top'>
         <view class='wx-head'>
-            <image class='head-img' src='../../images/tx1.png'></image>
-            <text class='wx-name'>微信名</text>
+            <image class='head-img' src='{{userInfo.avatarUrl}}'></image>
+            <text class='wx-name'>{{userInfo.nickName}}</text>
         </view>
         <view class='attestation' catchtap='goIdentification'> 去认证</view>
     </view>
@@ -24,32 +24,39 @@
     <!-- 搜索 -->
     <view class='search-box'>
         <image class='search-btn' src='../../images/ss.png' catchtap='searchDetails'></image>
-        <input class='search' placeholder-class='placeholder' placeholder='点击搜索商品'></input>
+        <input class='search' placeholder-class='placeholder' placeholder='点击搜索商品' bindinput='searchText'></input>
     </view>
     <!-- 优惠券 -->
     <view class='discounts' catchtap='couponList'>
         <image class='discounts-img' src='../../images/yhq.png'></image>
     </view>
     <!-- 商品列表 -->
-    <view class='{{navClass}}' id='nav-tab'>
+    <view class='nav-tab' id='nav-tab'>
         <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
-            <block wx:for="{{navList}}" wx:key="{{index}}">
-                <view class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item.name}}</view>
+            <block wx:for="{{goodsTypeList}}" wx:key="{{index}}">
+                <view class="tab-item {{currentTab==index?'active':''}}" data-id="{{item.id}}" data-current="{{index}}" catchtap="swichNav">{{item.name}}</view>
+            </block>
+        </scroll-view>
+    </view>
+    <view class='nav-tab-fixed' id='nav-tab' style='display:{{navClass}}'>
+        <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+            <block wx:for="{{goodsTypeList}}" wx:key="{{index}}">
+                <view class="tab-item {{currentTab==index?'active':''}}" data-id="{{item.id}}" data-current="{{index}}"  catchtap="swichNav" >{{item.name}}</view>
             </block>
         </scroll-view>
     </view>
     <view class='good-list'>
         <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" >
-            <swiper-item wx:for="{{[0,1,2,3,4,5,6,7]}}" wx:key="{{index}}">
+            <swiper-item wx:for="{{goodsTypeList}}" wx:key="{{index}}">
                 <scroll-view scroll-y="true" class="scoll-h">
-                    <view class='goods-item'  wx:for="{{[1,2,3,4,5,6,7,8]}}" wx:key="{{index}}">
+                    <view class='goods-item'  wx:if="{{goodsList !==''}}"  wx:for="{{goodsList}}" wx:key="{{index}}" data-id='{{item.id}}' catchtap='goodsDetails'>
                         <view class='good-img'>
-                            <image src='../../images/goods.png'></image>
+                            <image src='{{item.pic_url}}'></image>
                         </view>
-                        <view class='description'>Apple iPhone XR (A2108) 128GB 珊瑚色 移动联通电信4G手机 双卡双待Apple iPhone XR (A2108) 128GB 珊瑚色 移动联通电信4G手机 双卡双待</view>
+                        <view class='description'>{{item.name}}</view>
                         <view class='go-buy'>
                             <view class='points'>
-                                <text>50000</text>
+                                <text>{{item.integral}}</text>
                                 <text class='points-unit'>积分</text>
                             </view>
                             <view class='add-car'>
@@ -57,6 +64,7 @@
                             </view>
                         </view>
                     </view>
+                    <view  class='list-none' wx:if="{{goodsList == ''}}">暂无数据</view>
                 </scroll-view>
             </swiper-item>
         </swiper>

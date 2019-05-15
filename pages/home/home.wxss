@@ -8,15 +8,17 @@ page,
     display: flex;
     justify-content: space-between;
     line-height: 50rpx;
+    padding-top:30rpx;
 }
-
+.wx-head{
+    display: flex;
+    align-items: center;
+}
 .head-img {
     width: 50rpx;
     height: 50rpx;
     border-radius: 50%;
     margin-right: 20rpx;
-    display: inline-block;
-    vertical-align: middle;
 }
 
 .attestation {
@@ -25,6 +27,8 @@ page,
 
 .banner {
     margin: 30rpx auto;
+    border-radius:15rpx;
+    overflow:hidden; 
 }
 
 swiper, swiper-item {
@@ -55,12 +59,13 @@ swiper, swiper-item {
 }
 
 .search-btn {
-    height: 28rpx;
-    width: 28rpx;
-    position: absolute;
-    right: 20rpx;
-    top: 20rpx;
-    z-index: 9;
+    height:28rpx;
+    width:28rpx;
+    position:absolute;
+    right:0;
+    top:0;
+    z-index:9;
+    padding:18rpx;
 }
 
 .discounts {
@@ -120,14 +125,14 @@ swiper, swiper-item {
 .nav-tab-fixed{
     position:fixed;
     top:0;
-    left:4%;
+    left:30rpx;
     z-index:99;
     background:#fff;
-    width:94%;
+    right:30rpx;
     padding:30rpx 0;
 }
 .tab-h {
-    height: 60rpx;
+    height: 66rpx;
     width: 100%;
     overflow: hidden;
     line-height: 60rpx;
@@ -143,9 +148,10 @@ swiper, swiper-item {
 .tab-item.active {
     color: #06559B;
     position: relative;
+    border-bottom:3px solid #06559B; 
 }
 
-.tab-item.active:after {
+/* .tab-item.active:after {
     content: "";
     display: block;
     height: 8rpx;
@@ -155,7 +161,7 @@ swiper, swiper-item {
     bottom: 0;
     left: 5rpx;
     border-radius: 16rpx;
-}
+} */
 
 .item-ans {
     width: 100%;

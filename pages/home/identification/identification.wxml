@@ -23,4 +23,20 @@
         </view>
     </view>
     <view  catchtap='sendData' class='submit'> 提交认证</view>    
+    <!-- 声明弹窗 -->
+    <view class='statement'>
+        <statement id='statement' 
+            title='服务协议及免责条款' 
+            content1='{{content1}}' 
+            content2='{{content2}}'
+            content3='{{content3}}'
+            read='《积分商城免责条款》'
+            btn_no='不同意' 
+            btn_ok='同意'
+            bind:read="_read"
+            bind:error="_error"  
+            bind:success="_success">
+        </statement>
+    </view>
 </view>
+

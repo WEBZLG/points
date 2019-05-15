@@ -29,7 +29,7 @@ Page {
 .getcode{
   position: absolute;
   right: 20rpx;
-  top: 50rpx;
+  top: 46rpx;
   z-index: 9;
 }
 .disable {

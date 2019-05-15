@@ -1,6 +1,4 @@
-// pages/home/search/search.js
-const app = getApp();
-var ajax = require("../../../utils/ajax.js");
+// pages/home/goodsDetails/goodsDetails.js
 Page({
 
     /**
@@ -14,26 +12,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.getGoodsList(options.keyword)
+
     },
-    // 商品列表函数
-    getGoodsList(keyword) {
-        var that = this;
-        var item = {
-            'user_id': app.globalData.userId,
-            'keyword': keyword
-        }
-        ajax.wxRequest('POST', 'integral_goods/lists', item,
-            (res) => {
-                console.log(res)
-                that.setData({
-                    goodsList: res.data.list
-                })
-            },
-            (err) => {
-                console.log(err)
-            })
-    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

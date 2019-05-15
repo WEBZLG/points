@@ -1,10 +1,14 @@
 // pages/myself/myself.js
+const app = getApp()
+var ajax = require("../../utils/ajax.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+      userInfo:{},//用户信息
+      userId:"",//用户id
       classIdentification: "identification-t",//是否认证
       signText: "签到领取积分",//签到按钮文字
       signClass:"sign-in"//签到按钮样式
@@ -28,7 +32,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      this.setData({
+          userInfo: app.globalData.userInfo,
+          userId:app.globalData.userId
+      })
   },
 
   /**

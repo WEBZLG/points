@@ -1,0 +1,69 @@
+<!--pages/home/goodsDetails/goodsDetails.wxml-->
+<view class='goods-box'>
+    <view class='banner'>
+        <swiper autoplay="{{true}}" indicator-dots="{{true}}" indicator-color="rgba(255,255,255,1)" indicator-active-color="rgba(6,85,155,1)" circular="{{true}}">
+            <block>
+                <swiper-item>
+                    <image src="../../../images/goods.png" class="slide-image" width="100%" height="600" />
+                </swiper-item>
+                <swiper-item>
+                    <image src="../../../images/goods.png" class="slide-image" width="100%" height="600" />
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class='goods-num'>
+        <view class='price'>
+            <text class='priceNum'>60000</text>
+            <text>积分/台</text>
+        </view>
+        <view class='number'>
+            <text>商品数量：999999</text>
+        </view>
+    </view>
+    <view class='goods-desc'>
+        <view class='title'>华为 HUAWEI P30 Pro 超感光徕卡四摄10倍混
+合变焦8GB+256GB极光色全网通版双4G手机</view>
+        <view class='address'>
+            <text>取货门店：</text>
+            <view>华滨通讯航母（哈影院店）</view>
+        </view>
+        <view class='specification'>
+            <text>产品规格：</text>
+            <view>机身长度158mm 机身宽度73.4mm 机身厚度8.41mm 
+               机身重量192g</view>
+        </view>
+    </view>
+    <view class='goods-details'>
+        <view class='g-title'>商品详情</view>
+        <view class='goods-details-img'>
+            <image src='../../../images/goodsdetails.jpg' mode='widthFix'></image>
+        </view>
+    </view>
+    <view class='operate'>
+        <view class='nav'>
+            <view>
+                <view class='nav-img'>
+                    <image src='../../../images/fx.png'></image>
+                </view>
+                <text>分享</text>
+            </view>
+            <view>
+                <view class='nav-img'>
+                    <image src='../../../images/sy1.png'></image>
+                </view>
+                <text>首页</text>
+            </view>
+            <view>
+                <view class='nav-img'>
+                    <image src='../../../images/gwc1.png'></image>
+                </view>
+                <text>购物车</text>
+            </view>
+        </view>
+        <view class='buy'>
+            <view class='add-car'>加入购物车</view>
+            <view class='buy-now'>立即兑换</view>
+        </view>
+    </view>
+</view>

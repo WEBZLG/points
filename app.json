@@ -11,7 +11,9 @@
         "pages/myself/coupon/coupon",
         "pages/myself/coupon/couponDetails/couponDetails",
         "pages/home/coupon/coupon",
-        "pages/home/coupon/couponDetails/couponDetails"
+        "pages/home/coupon/couponDetails/couponDetails",
+        "components/statement/statement",
+        "pages/home/goodsDetails/goodsDetails"
     ],
     "window": {
         "backgroundTextStyle": "light",

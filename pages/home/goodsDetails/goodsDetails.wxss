@@ -1,0 +1,112 @@
+/* pages/home/goodsDetails/goodsDetails.wxss */
+Page {
+  background: rgba(242, 243, 247, 1);
+}
+.goods-box{
+    padding:30rpx 0 180rpx;
+}
+.banner{
+    padding:30rpx 60rpx 0;
+    background-color:#fff;
+}
+swiper{
+    height: 600rpx;
+}
+.goods-num{
+    display: flex;
+    color: #fff;
+    font-size: 24rpx;
+    justify-content: space-between;
+    align-items: flex-end;
+    background: linear-gradient(to right, #F26E3C , #F9A43E);
+    padding: 30rpx;
+}
+.priceNum{
+    font-size: 60rpx;
+}
+.goods-desc{
+    font-size: 24rpx;
+    background-color:#fff;
+    padding:30rpx;
+    margin-bottom:30rpx;
+}
+.title{
+    font-size: 32rpx;
+    color: #06559B;
+    font-weight: bold;
+}
+.specification,
+.address{
+    display: flex;
+    margin-top: 15rpx;
+}
+.specification view,
+.address view{
+    flex: 1;
+}
+.goods-details{
+    background-color: #fff;
+}
+.g-title{
+    color: #06559B;
+    font-weight: bold;
+    padding: 30rpx;
+    position: relative;
+    border-bottom: 1px solid #e1e1e1;
+}
+.g-title:after{
+    content: "";
+    display: block;
+    height: 4rpx;
+    width: 40rpx;
+    background: #F9BF00;
+    position: absolute;
+    bottom: 20rpx;
+    left: 30rpx;
+    border-radius: 16rpx;
+}
+.goods-details-img image{
+    height: auto;
+}
+.operate,
+.nav,
+.buy{
+    display: flex;
+    font-size: 24rpx;
+    justify-content: space-around;
+    text-align: center;
+    color: #444;
+    align-items: center;
+}
+.nav,
+.buy{
+    width: 50%;
+}
+.operate{
+    padding:20rpx 30rpx 20rpx 0;
+    background-color:#fff;
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+}
+.buy{
+    border-radius:40rpx;
+    overflow:hidden;
+}
+.nav-img{
+    height: 48rpx;
+    width: 48rpx;
+    margin:0 auto;
+}
+.add-car,
+.buy-now{
+    width: 50%;
+    padding: 26rpx 0;
+    color: #fff;
+    font-size: 28rpx;
+    background: linear-gradient(to right, #FE5D38 , #FE8738);
+}
+.buy-now{
+    background: linear-gradient(to right, #F43B3E , #DC4F51);
+}

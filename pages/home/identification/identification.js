@@ -11,28 +11,30 @@ Page({
     name:"",
     idCard:"",
     phone:"",
-    code:""
+    code:"",
+    content1:"亲爱的用户，积分商城依照相关法规要求进行实名制管理，请您积极配合",
+    content2:"积分商城严格保护您的个人信息，确保信息安全，具体详见《积分商城免责条款》",
+    content3:"您在点击同意下列下以前，请务必审慎阅读，并充分理解协议条款内容"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      this.selectComponent("#statement").showPopup();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      
   },
 
   /**
@@ -69,6 +71,7 @@ Page({
   onShareAppMessage: function () {
 
   },
+
   // 获取验证码
   getcode:function(){
     var that = this;
@@ -145,5 +148,20 @@ Page({
         console.log(err.errMsg)
       })
     }
-  }
+  },
+    _success(){
+        this.selectComponent("#statement").hidePopup();
+    },
+    _error(){
+        wx.reLaunch({
+            url: '../../home/home',
+        })
+    },
+    _read(){
+        this.setData({
+            content1:"本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确更有个性化的服务，本应用会按照本隐私权政策的规定使用和披露您的个人信息。但本应用将以高度的勤勉、审慎义务对待这些信息。",
+            content2:"除本隐私权政策另有规定外，在未征得您事先许可的情况下，本应用不会将这些信息对外披露或向第三方提供本应用会不时更新本隐私权政策。",
+            content3:"您在同意本应用服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本应用服务使用协议不可分割的一部分。 适用范围在您使用本应用网络服务，或访问本应用平台网页时，本应用自动接收并记录的您的浏览器和计算机上的信息，包括但不限于您的IP地址、浏览器的类型、使用的语言、访问日期和时间、软硬件特征信息及您需求的网页记录等数据；"
+        })
+    }
 })

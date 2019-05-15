@@ -1,5 +1,5 @@
 
-var serverPath = ""
+var serverPath = "http://192.168.1.200:1111/api/"
 /**
 * 封装wx.request请求
 * method： 请求方式

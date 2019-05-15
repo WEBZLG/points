@@ -4,11 +4,11 @@
         <view class='person-message'>
             <view class='message'>
                 <view class='head-img'>
-                    <image src='../../images/tx1.png'></image> 
+                    <image src='{{userInfo.avatarUrl}}'></image> 
                 </view>
                 <view>
-                    <view class='user-name'>积分商城</view>
-                    <view class='user-id'>用户ID：78789798</view>
+                    <view class='user-name'>{{userInfo.nickName}}</view>
+                    <view class='user-id'>用户ID：User-{{userId}}</view>
                     <view class='user-type'>复核员</view>
                 </view>
             </view>

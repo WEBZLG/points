@@ -1,6 +1,7 @@
 // pages/home/home.js
+const app = getApp()
+var ajax = require("../../utils/ajax.js")
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -8,40 +9,12 @@ Page({
       idx:0,
       currentTab: 0, //预设当前项的值
       scrollLeft: 0, //tab标题的滚动条位置
-      navClass:"nav-tab",//滚动导航类
-      navList: [{
-          id: 0,
-          name: "全部"
-      },
-      {
-          id: 1,
-          name: "餐饮"
-      },
-      {
-          id: 2,
-          name: "酒店"
-      },
-      {
-          id: 3,
-          name: "商超"
-      },
-      {
-          id: 4,
-          name: "数码"
-      },
-      {
-          id: 5,
-          name: "教育"
-      } ,
-    {
-        id: 5,
-        name: "服务"
-    } ,
-    {
-        id: 5,
-        name: "其他"
-    }
-      ],
+      navClass:"none",//滚动导航类
+      userInfo:{},//微信个人信息
+      goodsTypeList:[],//商品分类列表
+      goodsList:[],//商品列表
+      searchText:''//搜索内容
+
   },
     //   去认证
     goIdentification(e){
@@ -49,26 +22,39 @@ Page({
             url: './identification/identification',
         })
     },
-    // 搜索结果
-    searchDetails(e){
-        wx.navigateTo({
-            url: './search/search',
+    // 搜索文字
+    searchText(e){
+        this.setData({
+            searchText:e.detail.value
         })
     },
+    // 搜索结果
+    searchDetails(e){
+        var keyword = this.data.searchText;
+        wx.navigateTo({
+            url: './search/search?keyword='+keyword,
+        })
+    },
+    // 优惠券跳转
     couponList(e){
         wx.navigateTo({
             url: './coupon/coupon',
         })
     },
+
     // 滚动切换标签样式
     switchTab: function (e) {
+        console.log(e)
         this.setData({
             currentTab: e.detail.current
         });
         this.checkCor();
+        // this.getGoodsList(e.detail.current)
     },
     // 点击标题切换当前页时改变样式
     swichNav: function (e) {
+        console.log(e)
+        var id = e.currentTarget.dataset.id;
         var cur = e.target.dataset.current;
         if (this.data.currentTaB == cur) { return false; }
         else {
@@ -76,6 +62,7 @@ Page({
                 currentTab: cur
             })
         }
+        this.getGoodsList(id)
     },
     //判断当前滚动超过一屏时，设置tab标题滚动条。
     checkCor: function () {
@@ -91,22 +78,68 @@ Page({
     },
     // 监听分类导航
     onPageScroll: function (e) {
-        if (e.scrollTop>=335){
+        if (e.scrollTop>=330){
             this.setData({
-                navClass: "nav-tab-fixed"
+                navClass: "block"
             })
         }else{
             this.setData({
-                navClass: "nav-tab",
+                navClass: "none",
             })
         }
     },
-
+    // 商品分类函数
+    getGoodsType(e){
+        var that = this;
+        var item = {
+            'user_id': app.globalData.userId
+        }
+        ajax.wxRequest('POST', 'integral_cat/lists', item,
+            (res) => {
+                console.log(res)
+                that.setData({
+                    goodsTypeList:res.data.list
+                })
+                that.getGoodsList(0)
+            },
+            (err) => {
+                console.log(err)
+            })
+    },
+    // 商品列表函数
+    getGoodsList(typeId) {
+        var that = this;
+        var item = {
+            'user_id': app.globalData.userId,
+            'keyword':'',
+            'cat_id': typeId
+        }
+        ajax.wxRequest('POST', 'integral_goods/lists', item,
+            (res) => {
+                console.log(res)
+                that.setData({
+                    goodsList: res.data.list
+                })
+            },
+            (err) => {
+                console.log(err)
+            })
+    },
+    // 商品详情
+    goodsDetails(e){
+        var id = e.currentTarget.dataset.id
+        wx.navigateTo({
+            url: './goodsDetails/goodsDetails?id='+id,
+        })
+    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     
+     this.setData({
+         userInfo: app.globalData.userInfo
+     });
+      this.getGoodsType();
   },
 
   /**
