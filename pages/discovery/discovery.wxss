@@ -1,7 +1,4 @@
 /* pages/discovery/discovery.wxss */
-Page{
-  background:rgba(242,243,247,1);
-}
 .shop-box{
   background: #fff;
   border-radius: 15rpx;

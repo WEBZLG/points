@@ -166,6 +166,7 @@ Page({
             })
         }
     },
+    // 删除商品
     deleteGoods: function (e) {
         var that = this;
         // 获取索引
@@ -200,6 +201,24 @@ Page({
         //         console.log(res);
         //     }
         // })
+    },
+    // 购买商品
+    buyGoods(e){   
+        wx.showModal({
+            title: '兑换商品',
+            content: '确定兑换此商品？',
+            cancelText: "取消",
+            confirmText: "确定",
+            success: function (res) {
+                if (res.confirm) {
+                    wx.redirectTo({
+                        url: '../exchange/exchange'
+                    })
+                } else {
+
+                }
+            }
+        });
     },
   /**
    * 生命周期函数--监听页面加载

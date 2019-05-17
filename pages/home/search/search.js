@@ -7,7 +7,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        goodsList:[]//商品列表
     },
 
     /**
@@ -21,7 +21,8 @@ Page({
         var that = this;
         var item = {
             'user_id': app.globalData.userId,
-            'keyword': keyword
+            'keyword': keyword,
+            'cat_id':""
         }
         ajax.wxRequest('POST', 'integral_goods/lists', item,
             (res) => {
@@ -33,6 +34,13 @@ Page({
             (err) => {
                 console.log(err)
             })
+    },
+    // 商品详情
+    goodsDetails(e) {
+        var id = e.currentTarget.dataset.id
+        wx.navigateTo({
+            url: '../goodsDetails/goodsDetails?id=' + id,
+        })
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

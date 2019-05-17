@@ -13,8 +13,17 @@
         "pages/home/coupon/coupon",
         "pages/home/coupon/couponDetails/couponDetails",
         "components/statement/statement",
-        "pages/home/goodsDetails/goodsDetails"
+        "pages/home/goodsDetails/goodsDetails",
+        "pages/exchange/exchange",
+        "pages/myself/myorder/myorder",
+        "pages/myself/myorder/orderDetails/orderDetails",
+        "pages/discovery/discoveryDetails/discoveryDetails"
     ],
+    "permission": {
+        "scope.userLocation": {
+            "desc": "我们将根据位置展示同城的视频"
+        }
+    },
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",

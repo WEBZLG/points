@@ -1,0 +1,27 @@
+<!--pages/myself/myorder/myorder.wxml-->
+<view class='container'>
+    <view class='myorder-box'>
+        <view class='goods-list'>
+            <view class='order-time'>下单时间：2019-03-06 19:36</view>
+            <view class='goods-item'>
+                <view class='goods-img'>
+                    <image src='../../../images/goods.png'></image>
+                </view>
+                <view class='goods-desc'>
+                    <view class='title'>Apple iPhone XS(A2100) 64GB 金色全网通手机</view>
+                    <view class='address'>取货门店：华滨通讯航母（哈影院店）</view>
+                    <view class='time'>取货时间：周一至周日 09:00-21:00</view>
+                    <view class='num-status'>
+                        <text>数量：2</text>
+                        <text class='status'>已取货</text>
+                    </view>
+                </view>
+            </view>
+            <view class='all-num'>
+                <text class='total'>共计1件商品</text>
+                <view class='viewDetails' catchtap='viewDetails'>查看详情</view>
+            </view>
+        </view>
+        <view class='list-none'>暂无数据</view>
+    </view>
+</view>

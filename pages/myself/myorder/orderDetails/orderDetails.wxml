@@ -1,0 +1,34 @@
+<!--pages/myself/myorder/orderDetials/orderDetails.wxml-->
+<view class='container'>
+    <view class='order-message'>
+        <view class='title'>订单信息</view>
+        <view class='message'>
+            <view>订单编号：fjhf53544</view>
+            <view>下单时间：2019-01-01</view>
+        </view>
+    </view>
+    <view class='goods-messge'>
+        <view class='title'>商品信息</view>
+        <view class='goods-box'>
+            <view class='goods-item'>
+                <view class='goods-img'>
+                    <image src='../../../../images/goods.png'></image>
+                </view>
+                <view class='goods-desc'>
+                    <view class='goods-title'>Apple iPhone XS(A2100) 64GB 金色全网通手机</view>
+                    <view class='address'>取货门店：华滨通讯航母（哈影院店）</view>
+                    <view class='num-status'>
+                        <text>数量：2</text>
+                        <view class='viewGoods' catchtap='viewGoods'>查看商品</view>
+                    </view>
+                </view>
+            </view>
+            <view class='merchant '>
+                <view>门店地址：电话费拉卡机了房间爱辣椒粉来士大夫</view>
+                <view>联系电话：83908394</view>
+                <view>取货时间：e9r7u9eur</view>
+                <view class='sureBtn'>确认取货</view>
+            </view>
+        </view>
+    </view>
+</view>

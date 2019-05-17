@@ -1,9 +1,5 @@
 /* pages/myself/coupon/couponDetails/couponDetails.wxss */
 
-page {
-    background: rgba(242, 243, 247, 1);
-}
-
 .details-box {
     padding: 30rpx 0;
 }
@@ -49,10 +45,11 @@ page {
 }
 
 .useNow {
-    color: #fff;
+    color: #06559b;
     padding: 24rpx;
     border-radius: 15rpx;
     text-align: center;
+    font-weight: bold;
     background-color: #f9be00;
 }
 .reduce{

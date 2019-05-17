@@ -1,38 +1,24 @@
 <!--pages/discovery/discovery.wxml-->
 <view class='container'>
-  <view class='shop-box'>
-    <view class='title'>门店列表</view>
-    <view class='shop-list'>
-      <view class='shop-item'>
-        <view class='shop-img'>
-          <image src='../../images/shop.png'></image>
-        </view>
-        <view class='shop-content'>
-          <view class='shop-title'>凌志手机连锁（新疆大街店）</view>
-          <view class='shop-adr'>黑龙江省哈尔滨市平房区新疆大街117号红旗MALLF1</view>
-          <view class='shop-distance'>
-            <text class='distance-num'>距您321m</text>
-            <view class='next-icon'>
-              <image src='../../images/next.png'></image>
+    <view class='shop-box'>
+        <view class='title'>门店列表</view>
+        <view class='shop-list'>
+            <view class='shop-item'  wx:for="{{shopList}}" wx:key="{{index}}" catchtap='shopDetails'>
+                <view class='shop-img'>
+                    <image src='{{item.cover_url}}'></image>
+                </view>
+                <view class='shop-content'>
+                    <view class='shop-title'>{{item.name}}</view>
+                    <view class='shop-adr'>{{item.address}}</view>
+                    <view class='shop-distance'>
+                        <text class='distance-num'>{{item.distance_str}}</text>
+                        <view class='next-icon'>
+                            <image src='../../images/next.png'></image>
+                        </view>
+                    </view>
+                </view>
             </view>
-          </view>
         </view>
-      </view>
-      <view class='shop-item'>
-        <view class='shop-img'>
-          <image src='../../images/shop.png'></image>
-        </view>
-        <view class='shop-content'>
-          <view class='shop-title'>凌志手机连锁（新疆大街店）</view>
-          <view class='shop-adr'>黑龙江省哈尔滨市平房区新疆大街117号红旗MALLF1</view>
-          <view class='shop-distance'>
-            <text class='distance-num'>距您321m</text>
-            <view class='next-icon'>
-              <image src='../../images/next.png'></image>
-            </view>
-          </view>
-        </view>
-      </view>
     </view>
-  </view>
+    <view class='list-none' wx:if="{{shopList==[]}}">暂无数据</view>
 </view>

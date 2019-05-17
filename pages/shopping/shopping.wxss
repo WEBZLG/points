@@ -1,9 +1,5 @@
 /* pages/shopping/shopping.wxss */
 
-Page {
-  background: rgba(242, 243, 247, 1);
-}
-
 .shopping-box {
   background: #fff;
   border-radius: 15rpx;
@@ -115,7 +111,7 @@ Page {
 .goods-btn{
   background:#F9BE00;
     padding:24rpx 54rpx;
-    color:#fff;
+    color:#06559b;
     font-weight:bold;
     border-radius:15rpx;
 }

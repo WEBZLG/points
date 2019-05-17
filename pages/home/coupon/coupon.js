@@ -1,22 +1,48 @@
 // pages/myself/coupon/coupon.js
+var ajax = require("../../../utils/ajax.js")
+const app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        couponList:[]//优惠券列表
     },
     couponDetails(e){
+        // console.log(e)
+        var id = e.currentTarget.dataset.id
       wx.navigateTo({
-          url: './couponDetails/couponDetails',
+          url: './couponDetails/couponDetails?id='+id,
       })  
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        var that = this;
+        var item = {
+            'user_id':"",
+            'page':"",
+            'lilmit':""
+        }
+        wx.showLoading();
+        ajax.wxRequest('POST', 'vouchers/lists', item,
+            (res) => {
+                wx.hideLoading();
+                // console.log(res)
+                that.setData({
+                    couponList:res.data.list
+                })
+            },
+            (err) => {
+                // console.log(err)
+                wx.hideLoading();
+                wx.showToast({
+                    title: '数据加载失败'+err,
+                    icon:"none"
+                })
+            })
     },
 
     /**

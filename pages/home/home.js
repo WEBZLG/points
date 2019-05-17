@@ -44,16 +44,15 @@ Page({
 
     // 滚动切换标签样式
     switchTab: function (e) {
-        console.log(e)
+        var id = e.currentTarget.dataset.list[e.detail.current].id
         this.setData({
             currentTab: e.detail.current
         });
         this.checkCor();
-        // this.getGoodsList(e.detail.current)
+        this.getGoodsList(id)
     },
     // 点击标题切换当前页时改变样式
     swichNav: function (e) {
-        console.log(e)
         var id = e.currentTarget.dataset.id;
         var cur = e.target.dataset.current;
         if (this.data.currentTaB == cur) { return false; }
@@ -62,7 +61,7 @@ Page({
                 currentTab: cur
             })
         }
-        this.getGoodsList(id)
+        // this.getGoodsList(id)
     },
     //判断当前滚动超过一屏时，设置tab标题滚动条。
     checkCor: function () {

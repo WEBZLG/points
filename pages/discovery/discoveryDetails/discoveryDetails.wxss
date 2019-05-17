@@ -1,0 +1,19 @@
+/* pages/discovery/discoveryDetails/discoveryDetails.wxss */
+
+.banner{
+    margin: 30rpx 0;
+    background-color: #fff;
+}
+swiper{
+    height: 600rpx;
+}
+.address{
+    padding: 30rpx;
+    font-size: 24rpx;
+    line-height: 50rpx;
+}
+.shop-name{
+    font-size: 32rpx;
+    color: #06559b;
+    font-weight: bold;
+}

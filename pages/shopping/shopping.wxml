@@ -39,11 +39,11 @@
         </view>
         <view class='goods-action'>
             <view class='price-all'>合计：<text>{{totalPrice}}</text><text style='font-size:24rpx;'>积分</text></view>
-            <view class='goods-btn' wx:if="{{btnShow}}">去兑换（{{selectedNum}}）</view>
+            <view class='goods-btn' wx:if="{{btnShow}}" catchtap='buyGoods'>去兑换（{{selectedNum}}）</view>
             <view class='goods-btn'  wx:else  catchtap='deleteGoods'>删除</view>
         </view>
     </view>
     <view wx:else>
-     <view class="list-none">购物车是空的哦~</view>
-  </view>
+        <view class="list-none">购物车是空的哦~</view>
+    </view>
 </view>

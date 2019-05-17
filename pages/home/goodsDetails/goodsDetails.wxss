@@ -1,7 +1,6 @@
 /* pages/home/goodsDetails/goodsDetails.wxss */
-Page {
-  background: rgba(242, 243, 247, 1);
-}
+@import "../../../utils/wxParse/wxParse.wxss";
+
 .goods-box{
     padding:30rpx 0 180rpx;
 }
@@ -24,6 +23,9 @@ swiper{
 .priceNum{
     font-size: 60rpx;
 }
+.number{
+    padding-bottom:6rpx;
+}
 .goods-desc{
     font-size: 24rpx;
     background-color:#fff;
@@ -44,27 +46,15 @@ swiper{
 .address view{
     flex: 1;
 }
+.specification-type,
+.type{
+    display: flex;
+    justify-content: space-around;
+}
 .goods-details{
     background-color: #fff;
 }
-.g-title{
-    color: #06559B;
-    font-weight: bold;
-    padding: 30rpx;
-    position: relative;
-    border-bottom: 1px solid #e1e1e1;
-}
-.g-title:after{
-    content: "";
-    display: block;
-    height: 4rpx;
-    width: 40rpx;
-    background: #F9BF00;
-    position: absolute;
-    bottom: 20rpx;
-    left: 30rpx;
-    border-radius: 16rpx;
-}
+
 .goods-details-img image{
     height: auto;
 }
@@ -93,20 +83,35 @@ swiper{
 .buy{
     border-radius:40rpx;
     overflow:hidden;
+    font-weight: bold;
 }
 .nav-img{
-    height: 48rpx;
-    width: 48rpx;
+    height: 50rpx;
+    width: 50rpx;
     margin:0 auto;
 }
 .add-car,
 .buy-now{
     width: 50%;
     padding: 26rpx 0;
-    color: #fff;
+    color: #06559b;
     font-size: 28rpx;
     background: linear-gradient(to right, #FE5D38 , #FE8738);
 }
 .buy-now{
     background: linear-gradient(to right, #F43B3E , #DC4F51);
+}
+.share-btn{
+    margin: 0;
+    padding: 0;
+    font-size: 24rpx;
+    line-height: inherit;
+    background-color: #fff;
+}
+.button-hover{
+    color: #444;
+    background-color: #fff;
+}
+button::after {
+  border: none;
 }

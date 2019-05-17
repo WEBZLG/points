@@ -1,0 +1,12 @@
+<!--pages/exchange/exchange.wxml-->
+<view class='container'>
+    <view class='exchange'>
+        <view class='exchange-img'>
+            <image src='../../images/exchange.png'></image>
+        </view>
+        <view class='description'>
+            请到我的——我的订单——订单详情里查看取货门店地址及取货时间
+        </view>
+        <view class='know-btn' catchtap='iKonw'> 我知道了</view>
+    </view>
+</view>

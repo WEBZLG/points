@@ -17,7 +17,7 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
           ajax.wxRequest('POST', 'login/wx_xcx',item ,
            (res) => {
-              console.log(res)
+            //   console.log(res)
                that.globalData.userId = res.data.id;
                that.globalData.openId = res.data.openid;
           }, 

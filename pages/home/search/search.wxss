@@ -1,8 +1,4 @@
 /* pages/home/search/search.wxss */
-Page {
-  background: rgba(242, 243, 247, 1);
-}
-
 .goods-box {
   background: #fff;
   border-radius: 15rpx;
@@ -11,6 +7,7 @@ Page {
 .goods-item{
     display: flex;
     padding: 30rpx;
+    align-items:center;
     border-bottom: 1px solid #e1e1e1
 }
 

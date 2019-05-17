@@ -1,3 +1,6 @@
+Page {
+  background: rgba(242, 243, 247, 1);
+}
 .container{
   padding: 0 30rpx;
   color: #444;
@@ -16,4 +19,26 @@ padding:40rpx 0;
     width: 0;
     height: 0;
     color: transparent;
+}
+/* 黄下线标题 */
+.g-title{
+    color: #06559B;
+    font-weight: bold;
+    padding: 30rpx;
+    position: relative;
+    border-bottom: 1px solid #e1e1e1;
+}
+.g-title:after{
+    content: "";
+    display: block;
+    height: 4rpx;
+    width: 40rpx;
+    background: #F9BF00;
+    position: absolute;
+    bottom: 20rpx;
+    left: 30rpx;
+    border-radius: 16rpx;
+}
+.disabled {
+    pointer-events: none;
 }

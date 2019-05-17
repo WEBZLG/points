@@ -1,9 +1,4 @@
 /* pages/myself/myself.wxss */
-
-Page {
-    background: rgba(242, 243, 247, 1);
-}
-
 .my-box {
     margin: 30rpx auto;
 }
@@ -41,12 +36,12 @@ Page {
 }
 
 .identification-f {
-    border: 1px solid #139805;
+    border: 1px solid #ABABAB;
     height: 40rpx;
     width: 98rpx;
     border-radius: 15rpx;
     font-size: 24rpx;
-    color: #139805;
+    color: #ABABAB;
     line-height: 40rpx;
     text-align: center;
 }
@@ -96,8 +91,8 @@ Page {
 .sign-in {
     padding: 24rpx 0;
     background: rgba(249, 190, 0, 1);
-    border-radius: 15px;
-    color: #fff;
+    border-radius: 15rpx;
+    color: #06559b;
     font-weight: bold;
     text-align: center;
     margin-top: 30rpx;
@@ -105,7 +100,7 @@ Page {
 
 .signed {
     padding: 24rpx 0;
-    border-radius: 15px;
+    border-radius: 15rpx;
     color: #fff;
     font-weight: bold;
     text-align: center;

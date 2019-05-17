@@ -1,7 +1,4 @@
 /* pages/identification/identification.wxss */
-Page {
-  background: rgba(242, 243, 247, 1);
-}
 
 .ident-box {
   background: #fff;
