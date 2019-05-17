@@ -17,3 +17,6 @@ swiper{
     color: #06559b;
     font-weight: bold;
 }
+.shop-dsecription{
+    background-color: #fff;
+}

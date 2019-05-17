@@ -22,5 +22,10 @@
     </view>
     <view class='shop-dsecription'>
         <view class='g-title'>门店介绍</view>
+        <view class=''></view>
+        <view class='g-title'>门店详情</view>
+        <view class=''></view>
+        <view class='g-title'>门店定位</view>
+        <view class=''></view>
     </view>
 </view>
