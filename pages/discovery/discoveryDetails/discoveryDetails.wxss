@@ -1,5 +1,5 @@
 /* pages/discovery/discoveryDetails/discoveryDetails.wxss */
-
+@import "../../../utils/wxParse/wxParse.wxss";
 .banner{
     margin: 30rpx 0;
     background-color: #fff;

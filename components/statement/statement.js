@@ -12,15 +12,7 @@ Component({
             value: '标题'     // 属性初始值（可选），如果未指定则会根据类型选择一个
         },
         // 弹窗内容
-        content1: {
-            type: String,
-            value: '内容'
-        },
-        content2: {
-            type: String,
-            value: '内容'
-        },
-        content3: {
+        content: {
             type: String,
             value: '内容'
         },

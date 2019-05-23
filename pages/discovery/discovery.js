@@ -17,8 +17,9 @@ Page({
     },
     // 门店详情、
     shopDetails(e){
+        var id = e.currentTarget.dataset.id;
         wx.navigateTo({
-            url: './discoveryDetails/discoveryDetails',
+            url: './discoveryDetails/discoveryDetails?id='+id,
         })
     },
     /**
@@ -30,7 +31,7 @@ Page({
         wx.getLocation({
             type: "gcj02",
             success: function(res) {
-                console.log(res)
+                // console.log(res)
                 // 获取门店列表
                 var item = {
                     'user_id': app.globalData.userId,
@@ -40,16 +41,22 @@ Page({
                     'limit':"",
                     'keyword':""
                 }
+                wx.showLoading();
                 ajax.wxRequest('POST', 'integralmall/shop', item,
                     (res) => {
                         console.log(res)
                         that.setData({
                             shopList:res.data.data
                         })
-                        
+                        wx.hideLoading();
                     },
                     (err) => {
                         console.log(err)
+                        wx.hideLoading();
+                        wx.showToast({
+                            title: err,
+                            icon:"none"
+                        })
                     })
                     // qqmapsdk.reverseGeocoder({
                     //     location: {

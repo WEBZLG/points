@@ -3,31 +3,32 @@
     <view class='order-message'>
         <view class='title'>订单信息</view>
         <view class='message'>
-            <view>订单编号：fjhf53544</view>
-            <view>下单时间：2019-01-01</view>
+            <view>订单编号：{{orderListData.order_no}}</view>
+            <view>下单时间：{{orderListData.create_time}}</view>
         </view>
     </view>
     <view class='goods-messge'>
         <view class='title'>商品信息</view>
-        <view class='goods-box'>
+        <view class='goods-box' wx:for="{{orderListData.goods_list}}" wx:key="{{index}}">
             <view class='goods-item'>
                 <view class='goods-img'>
-                    <image src='../../../../images/goods.png'></image>
+                    <image src='{{item.goods_pic}}'></image>
                 </view>
                 <view class='goods-desc'>
-                    <view class='goods-title'>Apple iPhone XS(A2100) 64GB 金色全网通手机</view>
-                    <view class='address'>取货门店：华滨通讯航母（哈影院店）</view>
+                    <view class='goods-title'>{{item.name}}</view>
+                    <view class='address'>取货网点：{{item.shop_name}}</view>
                     <view class='num-status'>
-                        <text>数量：2</text>
-                        <view class='viewGoods' catchtap='viewGoods'>查看商品</view>
+                        <text>数量：{{item.num}}</text>
+                        <view class='viewGoods' data-id="{{item.goods_id}}" catchtap='viewGoods'>查看商品</view>
                     </view>
                 </view>
             </view>
             <view class='merchant '>
-                <view>门店地址：电话费拉卡机了房间爱辣椒粉来士大夫</view>
-                <view>联系电话：83908394</view>
-                <view>取货时间：e9r7u9eur</view>
-                <view class='sureBtn'>确认取货</view>
+                <view>网点地址：{{item.shop_address}}</view>
+                <view>联系电话：{{item.shop_mobile}}</view>
+                <view>取货时间：{{item.shop_time}}</view>
+                <view class='sureBtn' wx:if="{{item.is_confirm==0}}" data-orderid="{{item.order_detail_id}}" catchtap='takeGoods'>确认取货</view>
+                <view class='sureBtned' wx:if="{{item.is_confirm==1}}">已取货</view>
             </view>
         </view>
     </view>

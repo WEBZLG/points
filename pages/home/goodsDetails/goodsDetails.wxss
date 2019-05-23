@@ -1,9 +1,6 @@
 /* pages/home/goodsDetails/goodsDetails.wxss */
 @import "../../../utils/wxParse/wxParse.wxss";
 
-.goods-box{
-    padding:30rpx 0 180rpx;
-}
 .banner{
     padding:30rpx 60rpx 0;
     background-color:#fff;
@@ -53,6 +50,7 @@ swiper{
 }
 .goods-details{
     background-color: #fff;
+    margin-bottom:180rpx;
 }
 
 .goods-details-img image{
@@ -114,4 +112,50 @@ swiper{
 }
 button::after {
   border: none;
+}
+.share-bg,
+.canvas-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:9999;
+    background:rgba(0,0,0,.6);
+}
+.share-box{
+    background:#fff;
+    width:80%;
+    margin:25% auto;
+    border-radius:15rpx;
+    font-weight:bold;
+}
+.share-title{
+    text-align:center;
+    padding:56rpx 0 35rpx 0;
+}
+.share-btn-box{
+    display:flex;
+    justify-content:space-evenly;
+    line-height:60rpx;
+}
+.btn-img{
+    height: 96rpx;
+    width: 96rpx;
+}
+.share-pyq{
+    font-size: 24rpx;
+    text-align: center;
+}
+.cancel{
+    padding:24rpx 0;
+    text-align:center;
+    border-top:1px solid #e1e1e1;
+    margin-top:30rpx;
+}
+#shareCanvas{
+    height: 900rpx;
+    width: 600rpx;
+    margin: 30rpx auto;
+    border-radius: 15rpx;
 }

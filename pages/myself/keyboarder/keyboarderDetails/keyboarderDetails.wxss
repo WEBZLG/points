@@ -1,0 +1,37 @@
+/* pages/myself/underling/underlingDetails/underlingDetails.wxss */
+.underling-box{
+    margin:30rpx 0;
+    background-color:#fff;
+    border-radius:15rpx;
+}
+.apply-name{
+    padding: 30rpx;
+    border-bottom: 1px solid #e1e1e1;
+}
+.apply-message{
+    padding: 30rpx;
+    border-bottom: 1px solid #e1e1e1;
+    line-height: 60rpx;
+}
+.apply-points{
+    color: #06559B;
+    font-weight: bold;
+}
+.apply-btn,
+.apply-btn-end{
+    color:#06559b;
+    font-weight:bold;
+    background-color:#F9BE00;
+    margin-top:12px;
+    height:80rpx;
+    line-height:80rpx;
+    text-align:center;
+    border-radius:15rpx;
+}
+.apply-btn-end{
+    background-color: #dcdcdc;
+    color: #fff;
+}
+.apply-message:last-child{
+    border-bottom: none;
+}

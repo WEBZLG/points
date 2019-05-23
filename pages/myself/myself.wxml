@@ -8,7 +8,7 @@
                 </view>
                 <view>
                     <view class='user-name'>{{userInfo.nickName}}</view>
-                    <view class='user-id'>用户ID：User-{{userId}}</view>
+                    <view class='user-id'>用户ID：{{userId}}</view>
                     <view class='user-type'>{{myInfo.group_name}}</view>
                 </view>
             </view>
@@ -22,7 +22,7 @@
                 </view>
                 <view class='point'>{{myInfo.integral}}</view>
             </view>
-            <view class='my-list'>
+            <view class='my-list' catchtap='myUnderling' hidden='{{isUnderling}}'>
                 <view class='my-title'>
                     <view class='icon-item'><image src='../../images/wdxs.png'></image></view>
                     <text>我的下属</text>

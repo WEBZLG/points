@@ -55,3 +55,9 @@
 .all-num{
     padding: 30rpx;
 }
+.status_r{
+    color: #C91A1A;
+}
+.status_b{
+    color: #06559B;
+}

@@ -1,0 +1,33 @@
+/* pages/myself/keyboarder/addKeyboarder/addKeyboarder.wxss */
+.client-message{
+    background-color: #fff;
+    border-radius: 15rpx;
+    margin: 30rpx 0;
+}
+.item{
+    display:flex;
+    justify-content:space-between;
+    padding:45rpx 30rpx;
+    border-bottom:1px solid #e1e1e1;
+    align-items: center;
+}
+.item:last-child{
+    border-bottom: none;
+}
+.item input{
+    text-align: right;
+}
+.points{
+    color:#06559B;
+    font-weight:bold;
+    padding:0 30rpx;
+}
+.apply-btn{
+    text-align: center;
+    color: #06559B;
+    padding: 24rpx;
+    font-weight: bold;
+    background-color: #F9BE00;
+    border-radius: 15rpx;
+    margin: 30rpx 0;
+}

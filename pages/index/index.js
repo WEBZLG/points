@@ -4,7 +4,7 @@ const app = getApp()
 var ajax = require("../../utils/ajax.js")
 Page({
   data: {
-    motto: '积分商城',
+    motto: '申请使用您的微信号登录积分商城',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')

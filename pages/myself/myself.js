@@ -10,10 +10,11 @@ Page({
         userInfo: {}, //用户信息
         userId: "", //用户id
         classIdentification: "identification-f", //是否认证
-        isCert:"未认证",
+        isCert: "未认证",
         signText: "签到领取积分", //签到按钮文字
         signClass: "sign-in", //签到按钮样式
-        myInfo: ""//个人信息
+        myInfo: "" ,//个人信息
+        isUnderling:false//是否显示我的下属
     },
     //   获取个人信息
     getUserInfo() {
@@ -21,16 +22,17 @@ Page({
         var item = {
             'user_id': that.data.userId
         }
+        wx.showLoading();
         ajax.wxRequest('POST', 'user/info', item,
             (res) => {
                 console.log(res)
                 that.setData({
-                    myInfo:res.data
+                    myInfo: res.data
                 })
-                if (res.data.is_sign==true){
+                if (res.data.is_sign == true) {
                     that.setData({
                         signText: "已签到",
-                        signClass:"signed"
+                        signClass: "signed"
                     })
                 }
                 if (res.data.is_cert == 1) {
@@ -39,9 +41,16 @@ Page({
                         classIdentification: "identification-t"
                     })
                 }
+                if (res.data.group_name=="用户"){
+                    that.setData({
+                        isUnderling:true
+                    })
+                }
+                wx.hideLoading();
             },
             (err) => {
                 console.log(err)
+                wx.hideLoading();
                 wx.showToast({
                     title: '获取数据失败' + err,
                     icon: "none"
@@ -54,34 +63,36 @@ Page({
         var item = {
             'user_id': that.data.userId
         }
+        wx.showLoading();
         ajax.wxRequest('POST', 'integralmall/sign', item,
             (res) => {
                 console.log(res)
-                if(res.code==1){
+                if (res.code == 0) {
                     wx.showToast({
-                        title: '积分+100'
+                        title: '积分' + res.integral
                     })
                     that.setData({
                         signText: "已签到",
                         signClass: "signed"
                     })
-                }else{
+                } else {
                     wx.showToast({
-                        title: '签到失败'+res.message,
-                        icon:"none"
+                        title: res.message,
+                        icon: "none"
                     })
                 }
-                
+                wx.hideLoading();
             },
             (err) => {
                 console.log(err)
+                wx.hideLoading();
                 wx.showToast({
-                    title: '签到失败' + err,
+                    title: err,
                     icon: "none"
                 })
             })
-
     },
+
     // 我的优惠券跳转
     myCoupon(e) {
         wx.navigateTo({
@@ -90,15 +101,38 @@ Page({
     },
     //  我的认证跳转
     goIdentification(e) {
-        wx.navigateTo({
-            url: '../home/identification/identification',
-        })
+        if (this.data.isCert == "已认证") {
+            wx.navigateTo({
+                url: '../home/isIdentification/isIdentification',
+            })
+        } else {
+            wx.navigateTo({
+                url: '../home/identification/identification',
+            })
+        }
     },
     // 我的订单跳转
-    myOrder(){
+    myOrder() {
         wx.navigateTo({
             url: './myorder/myorder',
         })
+    },
+    // 我的下属跳转
+    myUnderling() {
+        var type = this.data.myInfo.group_name
+        if(type=="机关员工"){
+            wx.navigateTo({
+                url: './officeStaff/officeStaff'
+            })
+        }else if( type=="录入员"){
+            wx.navigateTo({
+                url: './keyboarder/keyboarder'
+            })
+        }else{
+            wx.navigateTo({
+                url: './underling/underling'
+            })
+        }
     },
     /**
      * 生命周期函数--监听页面加载

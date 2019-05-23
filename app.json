@@ -17,7 +17,16 @@
         "pages/exchange/exchange",
         "pages/myself/myorder/myorder",
         "pages/myself/myorder/orderDetails/orderDetails",
-        "pages/discovery/discoveryDetails/discoveryDetails"
+        "pages/discovery/discoveryDetails/discoveryDetails",
+        "pages/myself/underling/underling",
+        "pages/myself/underling/underlingDetails/underlingDetails",
+        "pages/myself/keyboarder/keyboarder",
+        "pages/myself/keyboarder/keyboarderDetails/keyboarderDetails",
+        "components/select/select",
+        "pages/myself/officeStaff/officeStaff",
+        "pages/myself/officeStaff/officeStaffDetails/officeStaffDetails",
+        "pages/myself/keyboarder/addKeyboarder/addKeyboarder",
+        "pages/myself/officeStaff/addOfficeStaff/addOfficeStaff"
     ],
     "permission": {
         "scope.userLocation": {

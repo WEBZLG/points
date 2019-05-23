@@ -1,0 +1,27 @@
+<!--pages/myself/keyboarder/addKeyboarder/addKeyboarder.wxml-->
+<view class='container'>
+    <view class='client-message'>
+        <view class='item'>
+            <text>客户姓名</text>
+            <input placeholder='请填写姓名' bindinput='getName'></input>
+        </view>
+        <view class='item'>
+            <text>用户ID</text>
+            <input placeholder='请填写用户ID' bindinput='getId'></input>
+        </view>
+        <view class='item'>
+            <text>存款金额</text>
+            <input placeholder='请填写存款金额' bindinput='getMoney'></input>
+        </view>
+        <view class='item'>
+            <text>存款年限</text>
+            <view class="section">
+                <picker bindchange="yearPickerChange" value="{{index}}" range="{{selectYear}}" range-key="year_str">
+                    <view class="picker">{{selectYear[index].year_str}}</view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class='points'>积分：0</view>
+    <view class='apply-btn' catchtap='applyPoints'>申请积分</view>
+</view>

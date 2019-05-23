@@ -1,17 +1,15 @@
 // pages/identification/identification.js
 var ajax  = require("../../../utils/ajax.js")
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isDis:"",
-    codeText:"获取验证码",
     name:"",
     idCard:"",
-    phone:"",
-    code:""
+    phone:""
   },
 
   /**
@@ -19,16 +17,39 @@ Page({
    */
   onLoad: function (options) {
       var that = this;
+      var item = {
+          'user_id': app.globalData.userId,
+          'card_no': '',
+          'true_name': '',
+          'mobile': '',
+          'code': ''
+      }
       wx.showLoading();
-      let data = {
-          uid: '1'
-      };
-      ajax.wxRequest('POST', '', data, (res) => {
-          console.log(res.data)
-      }, (err) => {
-          console.log(err.errMsg)
-      })
-      wx.hideLoading();
+      ajax.wxRequest('POST', 'user/certIdentity', item,
+          (res) => {
+              console.log(res)
+              if (res.code == 0) {
+                  that.setData({
+                      name:res.data.true_name,
+                      idCard:res.data.card_no,
+                      phone:res.data.mobile
+                  })
+              } else {
+                  wx.showToast({
+                      title: res.message,
+                      icon: "none"
+                  })
+              }
+              wx.hideLoading();
+          },
+          (err) => {
+              console.log(err)
+              wx.hideLoading();
+              wx.showToast({
+                  title: '数据加载失败' + err,
+                  icon: "none"
+              })
+          })
   },
 
   /**

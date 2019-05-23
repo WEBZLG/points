@@ -11,7 +11,7 @@
                     <view class='goods-addr'>黑龙江省哈尔滨市平房区新疆大街117号红旗MALLF1</view>
                     <view class='goods-point'>
                         <view class='points'>{{item.integral}}<text class='points-unit'>积分</text></view>
-                        <view class='add-car'>
+                        <view class='add-car' data-id="{{item.id}}" catchtap='addCar'>
                             <image src='../../../images/add.png'></image>
                         </view>
                     </view>

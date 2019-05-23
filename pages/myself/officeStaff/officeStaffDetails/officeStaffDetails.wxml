@@ -1,0 +1,20 @@
+<!--pages/myself/underling/underlingDetails/underlingDetails.wxml-->
+<view class='container'>
+    <view class='underling-box'>
+        <view class='underling-apply'>
+            <view class='apply-name'>申请记录</view>
+            <block wx:for="{{applyList}}" wx:key="{{index}}" >
+            <view class='apply-message' wx:if="{{applyList!==''}}">
+                <view>客户姓名：{{item.true_name}}</view>
+                <view>用户ID：{{item.user_id}}</view>
+                <view>存款金额：{{item.money}}</view>
+                <view>存款年限：{{item.year_str}}</view>
+                <view class='apply-points'>申请积分：{{item.integral}}</view>
+                <view class='apply-btn' wx:if="{{item.is_issue==0}}" >待发放</view>
+                <view class='apply-btn-end' wx:if="{{item.is_issue==1}}">已发放</view>
+            </view>
+            </block>
+            <view class='list-none'  wx:if="{{applyList==''}}">暂无申请记录</view>
+        </view>
+    </view>
+</view>

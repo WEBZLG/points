@@ -1,31 +1,27 @@
 <!--pages/discovery/discoveryDetails/discoveryDetails.wxml-->
+<import src="../../../utils/wxParse/wxParse.wxml"/>
 <view class='discoveryDetails'>
     <view class='banner'>
         <swiper autoplay="{{true}}" indicator-dots="{{true}}" indicator-color="rgba(255,255,255,1)" indicator-active-color="rgba(6,85,155,1)" circular="{{true}}">
-            <block>
+            <block wx:for="{{shopDetails.shop_pic_list}}" wx:key="{{index}}">
                 <swiper-item>
-                    <image src="../../../images/banner.png" class="slide-image" />
-                </swiper-item>
-                <swiper-item>
-                    <image src="../../../images/banner.png" class="slide-image" />
+                    <image src="{{item.pic_url}}" class="slide-image" />
                 </swiper-item>
             </block>
         </swiper>
         <view class='address'>
-            <view class='shop-name'>远大购物中心（群力店）</view>
+            <view class='shop-name'>{{shopDetails.name}}</view>
             <view class='shop-message'>
-                <view>门店地址：333</view>
-                <view>联系电话：333</view>
-                <view>营业时间：333</view>
+                <view>网点地址：{{shopDetails.address}}</view>
+                <view>联系电话：{{shopDetails.mobile}}</view>
+                <view>营业时间：{{shopDetails.shop_time}}</view>
             </view>
         </view>
     </view>
     <view class='shop-dsecription'>
-        <view class='g-title'>门店介绍</view>
-        <view class=''></view>
-        <view class='g-title'>门店详情</view>
-        <view class=''></view>
-        <view class='g-title'>门店定位</view>
-        <view class=''></view>
+        <view class='g-title'>网点介绍</view>
+        <view class=''>
+             <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+        </view>
     </view>
 </view>

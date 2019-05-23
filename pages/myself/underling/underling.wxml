@@ -1,0 +1,24 @@
+<!--pages/myself/underling/underling.wxml-->
+<view class='underling-box'>
+    <!-- <view class='add-underling'>
+        <view class='add-img'>
+            <image src='../../../images/add_i.png'></image>
+        </view>
+        <text>添加下属</text>
+    </view> -->
+    <view class='person-list'  wx:for="{{peopleList}}" wx:key="{{index}}" wx:if="{{peopleList!==''}}"   data-staffid="{{item.staff_id}}" catchtap='underlingDetails'>
+        <view class='person-message'>
+            <view class='head-img'>
+                <image src='{{item.head_img_url}}'></image>
+            </view>
+            <text class='person-name'>{{item.staff_name}}（{{item.identity}}）</text>
+        </view>
+        <view class='person-apply'>
+            <text class='new-apply'>{{item.is_new_apply==true?"有新申请":""}}</text>
+            <view class='next-icon'>
+                <image src='../../../images/next.png'></image>
+            </view> 
+        </view>
+    </view>
+    <view class='list-none' wx:if="{{peopleList==''}}">暂无数据</view>
+</view>

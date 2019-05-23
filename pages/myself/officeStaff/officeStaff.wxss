@@ -1,0 +1,43 @@
+/* pages/myself/officeStaff/officeStaff.wxss */
+.add-underling{
+    display: flex;
+    align-items:center;
+    padding:15rpx 30rpx;
+    background-color:#fff;
+    margin:30rpx 0;
+}
+.add-img,
+.head-img{
+    height:90rpx;
+    width:90rpx;
+    border-radius:50%;
+    overflow:hidden;
+    margin-right:30rpx;
+}
+.person-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:15rpx 30rpx;
+    background-color:#fff;
+    border-bottom: 1px solid #e1e1e1;
+}
+.person-list:last-child{
+    border-bottom: none;
+}
+.person-message,
+.person-apply{
+    display: flex;
+    align-items: center;
+}
+.next-icon{
+    width: 15rpx;
+    height: 26rpx;
+    margin-left: 30rpx;
+}
+.next-icon image{
+    display: block;
+}
+.new-apply{
+    color: #B31616;
+} 

@@ -3,9 +3,9 @@
   <view class='popup-container'>
     <view class="wx-popup-title">{{title}}</view>
     <view class='wx-popup-box'>
-        <view class="wx-popup-con">{{content1}}</view>
-        <view class="wx-popup-con">{{content2}}</view>
-        <view class="wx-popup-con">{{content3}}</view>
+        <view class="wx-popup-con">
+            
+        </view>
         <view class='wx-popup-read' bindtap='_read'>{{read}}</view>
     </view>
     <view class="wx-popup-btn">

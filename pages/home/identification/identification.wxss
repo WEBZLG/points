@@ -1,5 +1,5 @@
 /* pages/identification/identification.wxss */
-
+@import "../../../utils/wxParse/wxParse.wxss";
 .ident-box {
   background: #fff;
   border-radius: 15rpx;
@@ -40,4 +40,59 @@
     padding: 24rpx 0;
     text-align: center;
     border-radius: 15rpx;
+}
+.statement-bg{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:999999;
+    background: rgba(0, 0, 0, .6)
+}
+.statement{
+    width:80%;
+    margin:0 auto;
+    height:65%;
+    margin-top:20%;
+    background-color:#fff;
+    border-radius:15rpx;
+    padding:30rpx;
+    box-sizing:border-box;
+    position: relative;
+}
+.title{
+    font-weight:bold;
+    text-align:center;
+    padding:12rpx;
+}
+.content{
+    font-size: 28rpx;
+    font-weight: bold;
+}
+.details-btn{
+    color: #06559b;
+}
+.box-btn{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-top:1rpx solid #e1e1e1;
+}
+.box-btn view{
+    width: 50%;
+    text-align: center;
+    font-weight: bold;
+    padding: 24rpx;
+}
+.no-btn{
+    border-right: 1px solid #e1e1e1;
+}
+.content-details{
+    height:82%;
+    overflow:auto;
 }

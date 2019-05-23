@@ -25,6 +25,9 @@
   vertical-align: top;
   margin-right: 20rpx;
 }
+.check-all{
+    margin-top: 6rpx;
+}
 .goods-item{
     display: flex;
     padding: 30rpx;

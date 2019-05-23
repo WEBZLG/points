@@ -24,13 +24,14 @@ Page({
             user_id: app.globalData.userId,
             vouchers_id: options.id
         }
-        wx.hideLoading();
+        wx.showLoading();
         ajax.wxRequest('POST', 'vouchers/detail', item,
             (res) => {
                 // console.log(res)
                 that.setData({
                     couponDetails: res.data
                 })
+                wx.hideLoading();
             },
             (err) => {
                 // console.log(err)
@@ -55,7 +56,7 @@ Page({
             confirmText: "确定",
             success: function (res) {
                 if (res.confirm) {
-                    wx.hideLoading();
+                    wx.showLoading();
                     ajax.wxRequest('POST', 'vouchers/use', item,
                         (res) => {
                             // console.log(res)
@@ -75,6 +76,7 @@ Page({
                                     wx.navigateBack()
                                 }, 2000)
                             }
+                            wx.hideLoading();
                         },
                         (err) => {
                             // console.log(err)

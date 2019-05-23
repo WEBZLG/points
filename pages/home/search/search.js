@@ -24,15 +24,49 @@ Page({
             'keyword': keyword,
             'cat_id':""
         }
+        wx.showLoading();
         ajax.wxRequest('POST', 'integral_goods/lists', item,
             (res) => {
                 console.log(res)
                 that.setData({
                     goodsList: res.data.list
                 })
+                wx.hideLoading();
+            },
+            (err) => {
+                wx.hideLoading();
+                wx.showToast({
+                    title: '数据加载失败' + err,
+                    icon: "none"
+                })
+            })
+    },
+    //添加购物车
+    addCar(e) {
+        var that = this;
+        var id = e.currentTarget.dataset.id;
+        var item = {
+            'user_id': app.globalData.userId,
+            'goods_id': id,
+            'num': 1,
+            'attr': '[]'
+        }
+        wx.showLoading();
+        ajax.wxRequest('POST', 'cart/addCart', item,
+            (res) => {
+                console.log(res)
+                wx.showToast({
+                    title: res.message
+                })
+                wx.hideLoading();
             },
             (err) => {
                 console.log(err)
+                wx.hideLoading();
+                wx.showToast({
+                    title: '数据加载失败' + err,
+                    icon: "none"
+                })
             })
     },
     // 商品详情

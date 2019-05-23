@@ -1,9 +1,9 @@
 <!--pages/shopping/shopping.wxml-->
 <view class='container'>
-    <view class='shopping-box' wx:if="{{goodsList}}">
+    <view class='shopping-box' hidden='{{isNone}}'>
         <view class='shopping-sys'>
             <view class='check'>
-                <view class='check-icon'>
+                <view class='check-icon  check-all'>
                     <image wx:if="{{selectAllStatus}}" src='../../images/all.png'   catchtap="selectAll"></image>
                     <image wx:else  src='../../images/all_c.png' catchtap="selectAll"></image>
                 </view>
@@ -14,36 +14,36 @@
         <view class='goods-list' >
             <view class='goods-item' wx:for="{{goodsList}}" wx:key="{{index}}">
                 <view class='check-icon'>
-                    <image  src='../../images/all.png' wx:if="{{item.selected}}"  data-index="{{index}}"   catchtap="selectList"></image>
+                    <image  src='../../images/all.png' wx:if="{{item.is_select}}"  data-index="{{index}}"   catchtap="selectList"></image>
                     <image  src='../../images/all_c.png' wx:else data-index="{{index}}" catchtap="selectList"></image>
                 </view>
-                <view class='goods-img'>
-                    <image src='{{item.image}}'></image>
+                <view class='goods-img' data-id='{{item.goods_id}}' catchtap='goodsDetails'>
+                    <image src='{{item.goods_pic}}'></image>
                 </view>
                 <view class='goods-content'>
-                    <view class='description'>{{item.title}}</view>
-                    <view class='goods-adr'>{{item.addr}}</view>
+                    <view class='description'>{{item.goods_name}}</view>
+                    <view class='goods-adr' wx:for="{{item.attr_list}}" wx:key="{{index}}">{{item.attr_group_name}}：{{item.attr_name}}</view>
                     <view class='go-buy'>
                         <view class='points'>
-                            <text>{{item.price}}</text>
+                            <text>{{item.unitIntegral}}</text>
                             <text class='points-unit'>积分</text>
                         </view>
                         <view class='add-car'>
-                            <image class='reduce'  src='../../images/reduce_icon.png' bindtap="btn_minus"  data-index="{{index}}"></image>
+                            <image class='reduce'  src='../../images/reduce_icon.png' bindtap="btn_minus"  data-index="{{index}}" data-catid='{{item.cart_id}}'></image>
                             <input class='goods-num'  bindinput='input_num' data-index="{{index}}" disabled='disabled' value='{{item.num}}'></input>
-                            <image class='add'  src='../../images/add_icon.png' bindtap="btn_add" data-index="{{index}}"></image>
+                            <image class='add'  src='../../images/add_icon.png' bindtap="btn_add" data-index="{{index}}"  data-catid='{{item.cart_id}}'></image>
                         </view>
                     </view>
                 </view>
             </view>
         </view>
-        <view class='goods-action'>
+        <view class='goods-action' wx:if="{{goodsList!==''}}">
             <view class='price-all'>合计：<text>{{totalPrice}}</text><text style='font-size:24rpx;'>积分</text></view>
             <view class='goods-btn' wx:if="{{btnShow}}" catchtap='buyGoods'>去兑换（{{selectedNum}}）</view>
             <view class='goods-btn'  wx:else  catchtap='deleteGoods'>删除</view>
         </view>
     </view>
-    <view wx:else>
+    <view  hidden='{{!isNone}}'>
         <view class="list-none">购物车是空的哦~</view>
     </view>
 </view>

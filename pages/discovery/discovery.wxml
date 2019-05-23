@@ -1,9 +1,9 @@
 <!--pages/discovery/discovery.wxml-->
 <view class='container'>
     <view class='shop-box'>
-        <view class='title'>门店列表</view>
+        <view class='title'>网点列表</view>
         <view class='shop-list'>
-            <view class='shop-item'  wx:for="{{shopList}}" wx:key="{{index}}" catchtap='shopDetails'>
+            <view class='shop-item'  wx:for="{{shopList}}" wx:key="{{index}}" data-id='{{item.id}}'  catchtap='shopDetails' >
                 <view class='shop-img'>
                     <image src='{{item.cover_url}}'></image>
                 </view>

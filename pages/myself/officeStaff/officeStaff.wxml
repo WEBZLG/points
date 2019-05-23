@@ -1,0 +1,22 @@
+<!--pages/myself/officeStaff/officeStaff.wxml-->
+<view>
+    <view class='add-underling' catchtap='addOfficeStaff'>
+        <view class='add-img'>
+            <image src='../../../images/add_i.png'></image>
+        </view>
+        <text>添加下属</text>
+    </view>
+    <view class='person-list' wx:for="{{clientList}}" wx:key="{{index}}" data-staffid="{{item.user_id}}"    catchtap='officeStaffDetails'>
+        <view class='person-message'>
+            <view class='head-img'>
+                <image src='{{item.head_img_url}}'></image>
+            </view>
+            <text class='person-name'>{{item.true_name}}</text>
+        </view>
+        <view class='person-apply'>
+            <view class='next-icon'>
+                <image src='../../../images/next.png'></image>
+            </view> 
+        </view>
+    </view>
+</view>

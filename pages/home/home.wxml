@@ -6,17 +6,14 @@
             <image class='head-img' src='{{userInfo.avatarUrl}}'></image>
             <text class='wx-name'>{{userInfo.nickName}}</text>
         </view>
-        <view class='attestation' catchtap='goIdentification'> 去认证</view>
+        <view class='attestation' catchtap='goIdentification'> {{isCert}}</view>
     </view>
     <!-- banner轮播 -->
     <view class='banner'>
         <swiper autoplay="{{true}}" indicator-dots="{{true}}" indicator-color="rgba(255,255,255,1)" indicator-active-color="rgba(6,85,155,1)" circular="{{true}}">
-            <block>
+            <block wx:for="{{bannerList}}" wx:key="{{index}}">
                 <swiper-item>
-                    <image src="../../images/banner.png" class="slide-image" />
-                </swiper-item>
-                <swiper-item>
-                    <image src="../../images/banner.png" class="slide-image" />
+                    <image src="{{item.pic_url}}" class="slide-image" />
                 </swiper-item>
             </block>
         </swiper>
@@ -47,7 +44,7 @@
             </block>
         </scroll-view>
     </view>
-    <view class='good-list'>
+    <view class='good-list' style='height:{{autoHeight}}'>
         <swiper class="tab-content" current="{{currentTab}}" duration="300" data-list="{{goodsTypeList}}"   bindchange="switchTab" >
             <swiper-item wx:for="{{goodsTypeList}}" wx:key="{{index}}">
                 <scroll-view scroll-y="true" class="scoll-h">
@@ -61,7 +58,7 @@
                                 <text>{{item.integral}}</text>
                                 <text class='points-unit'>积分</text>
                             </view>
-                            <view class='add-car'>
+                            <view class='add-car' catchtap='addCar' data-id='{{item.id}}'>
                                 <image src='../../images/add.png'></image>
                             </view>
                         </view>

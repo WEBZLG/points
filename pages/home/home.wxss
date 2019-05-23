@@ -82,6 +82,7 @@ swiper, swiper-item {
     margin-bottom:30rpx;
     display:inline-block;
     margin:2%;
+    height:462rpx;
 }
 
 .good-img {
@@ -90,6 +91,7 @@ swiper, swiper-item {
 
 .description {
     width: 100%;
+    height: 84rpx;
     font-size: 32rpx;
     color: #444;
     overflow: hidden;
@@ -222,12 +224,13 @@ swiper, swiper-item {
 
 .tab-content {
     width:100%;
-    /* height: 100%; */
+    height: 100%;
     margin-top: 30rpx;
 }
 
 .scoll-h {
-    height: 100%;
+    /* height: 100%; */
+    /* height: 462rpx; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

@@ -1,29 +1,35 @@
 // pages/discovery/discoveryDetails/discoveryDetails.js
-const app = getApp()
-var ajax = require("../../../utils/ajax.js")
+const app = getApp();
+var ajax = require("../../../utils/ajax.js");
+var WxParse = require('../../../utils/wxParse/wxParse.js');
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        shopDetails:""//门店详情
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        console.log(options)
         var that = this;
-        var item = {}
-        wx.hideLoading();
-        ajax.wxRequest('POST', 'integralmall/shop', item,
+        var item = {
+            'user_id': app.globalData.userId,
+            'id': options.id
+        }
+        wx.showLoading();
+        ajax.wxRequest('POST', 'integralmall/shopDetail', item,
             (res) => {
                 console.log(res)
                 that.setData({
-
+                    shopDetails:res.data
                 })
-
+                WxParse.wxParse('article', 'html', res.data.content, this, 5);
+                wx.hideLoading();
             },
             (err) => {
                 console.log(err)
