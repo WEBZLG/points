@@ -1,7 +1,7 @@
 <!--pages/myself/coupon/coupon.wxml-->
 <view class='container'>
     <view class='coupon-list'>
-        <view  wx:for="{{couponList}}" wx:key="{{index}}"  class='coupon-item {{item.status==0 ? "" : "disabled" }}' wx:if="{{couponList!==[]}}" catchtap='couponDetails'  data-id='{{item.id}}' >
+        <view  wx:for="{{couponList}}" wx:key="{{index}}"  class='coupon-item {{item.status==0 ? "" : "disabled" }}' wx:if="{{couponList.length!==0}}" catchtap='couponDetails'  data-id='{{item.id}}' >
             <view class='coupon-box'>   
                 <view class='coupon-img'>
                     <image src='{{item.cover_url}}'></image>
@@ -21,6 +21,6 @@
                 <image src='../../../images/quan1.png' wx:else></image>
             </view>
         </view>
-        <view class='list-none' wx:if="{{couponList==[]}}">暂无数据</view>
+        <view class='list-none' wx:if="{{couponList.length==0}}">暂无数据</view>
     </view>
 </view>

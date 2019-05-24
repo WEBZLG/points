@@ -15,24 +15,37 @@ Page({
         canvasShow:true,
         windowWidth: wx.getSystemInfoSync().windowWidth,
         windowHeight: wx.getSystemInfoSync().screenHeight,
+        isAuthorization:false//是否授权
     },
     // 去首页
     goHome() {
-        wx.reLaunch({
-            url: '../../home/home',
-        })
+        if (this.data.isAuthorization==false){
+            this.goIndex()
+        }else{
+            wx.reLaunch({
+                url: '../../home/home',
+            })
+        }
     },
     // 去购物车
     goShopping() {
-        wx.reLaunch({
-            url: '../../shopping/shopping',
-        })
+        if (this.data.isAuthorization == false) {
+            this.goIndex()
+        } else {
+            wx.reLaunch({
+                url: '../../shopping/shopping',
+            })
+        }
     },
     // 去分享
     goShare() {
-        this.setData({
-            modelShow: false
-        })
+        if (this.data.isAuthorization == false) {
+            this.goIndex()
+        } else {
+            this.setData({
+                modelShow: false
+            })
+        }
     },
     // 取消分享
     cancel() {
@@ -40,78 +53,144 @@ Page({
             modelShow: true
         })
     },
+    // 检测是否授权
+    authorization(){
+        // 获取用户信息
+        var that = this;
+        wx.getSetting({
+            success: res => {
+                console.log(res)
+                if (res.authSetting['scope.userInfo']) {
+                    // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+                    wx.getUserInfo({
+                        success: res => {
+                            // 可以将 res 发送给后台解码出 unionId
+                            app.globalData.userInfo = res.userInfo
+                            // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+                            // 所以此处加入 callback 以防止这种情况
+                            if (that.userInfoReadyCallback) {
+                                that.userInfoReadyCallback(res)
+                            }
+                        }
+                    });
+                    wx.login({
+                        success: res => {
+                            var item = {
+                                code: res.code
+                            }
+                            ajax.wxRequest('POST', 'login/wx_xcx', item,
+                                (res) => {
+                                    console.log(res)
+                                    app.globalData.userId = res.data.id;
+                                    that.setData({
+                                        isAuthorization:true
+                                    })
+                                })
+                        }
+                    })
+
+                }else{
+
+                }
+            }
+        })
+    },
+
+    // 未授权去授权页
+    goIndex(){
+        wx.showModal({
+            title: '授权提示',
+            content: '此操作需要微信授权，是否授予权限？',
+            cancelText: "取消",
+            confirmText: "确定",
+            success: function (res) {
+                if (res.confirm) {
+                    wx.redirectTo({
+                        url: '../../index/index'
+                    })
+                } else {
+
+                }
+            }
+        });
+    },
     // 立即兑换
     buyNow(e) {
         var that = this;
         var id = e.currentTarget.dataset.id;
-        wx.showModal({
-            title: '兑换商品',
-            content: '确定兑换此商品？',
-            cancelText: "取消",
-            confirmText: "确定",
-            success: function(res) {
-                if (res.confirm) {
-                    var item = {
-                        'user_id': app.globalData.userId,
-                        'cart_id_list': "",
-                        'goods_info': JSON.stringify({
-                            "goods_id": id,
-                            "attr": [],
-                            "num": 1
-                        })
-                    }
-                    wx.showLoading();
-                    ajax.wxRequest('POST', 'integral_order/submit', item,
-                        (res) => {
-                            console.log(res)
-                            if (res.code == 0) {
-                                var item = {
-                                    'user_id': app.globalData.userId,
-                                    'order_id': res.data.order_id
-                                }
-                                ajax.wxRequest('POST', 'integral_order/payData', item,
-                                    (res) => {
-                                        wx.hideLoading();
-                                        console.log(res)
-                                        if (res.code == 0) {
-                                            wx.redirectTo({
-                                                url: '../../exchange/exchange'
-                                            })
-                                        } else {
+        if (this.data.isAuthorization == false) {
+            this.goIndex()
+        } else {
+            wx.showModal({
+                title: '兑换商品',
+                content: '确定兑换此商品？',
+                cancelText: "取消",
+                confirmText: "确定",
+                success: function (res) {
+                    if (res.confirm) {
+                        var item = {
+                            'user_id': app.globalData.userId,
+                            'cart_id_list': "",
+                            'goods_info': JSON.stringify({
+                                "goods_id": id,
+                                "attr": [],
+                                "num": 1
+                            })
+                        }
+                        wx.showLoading();
+                        ajax.wxRequest('POST', 'integral_order/submit', item,
+                            (res) => {
+                                console.log(res)
+                                if (res.code == 0) {
+                                    var item = {
+                                        'user_id': app.globalData.userId,
+                                        'order_id': res.data.order_id
+                                    }
+                                    ajax.wxRequest('POST', 'integral_order/payData', item,
+                                        (res) => {
+                                            wx.hideLoading();
+                                            console.log(res)
+                                            if (res.code == 0) {
+                                                wx.redirectTo({
+                                                    url: '../../exchange/exchange'
+                                                })
+                                            } else {
+                                                wx.showToast({
+                                                    title: res.message,
+                                                    icon: "none"
+                                                })
+                                            }
+
+                                        },
+                                        (err) => {
+                                            console.log(err)
+                                            wx.hideLoading();
                                             wx.showToast({
-                                                title: res.message,
+                                                title: '数据加载失败' + err,
                                                 icon: "none"
                                             })
-                                        }
-
-                                    },
-                                    (err) => {
-                                        console.log(err)
-                                        wx.hideLoading();
-                                        wx.showToast({
-                                            title: '数据加载失败' + err,
-                                            icon: "none"
                                         })
+                                } else {
+                                    wx.hideLoading();
+                                    wx.showToast({
+                                        title: res.message,
+                                        icon: "none"
                                     })
-                            } else {
+                                }
+                            },
+                            (err) => {
                                 wx.hideLoading();
                                 wx.showToast({
-                                    title: res.message,
+                                    title: '数据加载失败' + err,
                                     icon: "none"
                                 })
-                            }
-                        },
-                        (err) => {
-                            wx.hideLoading();
-                            wx.showToast({
-                                title: '数据加载失败' + err,
-                                icon: "none"
                             })
-                        })
-                } else {
+                    } else {
+                    }
                 }
-            }
-        });
+            });
+        }
+
     },
     //添加购物车
     addCar(e) {
@@ -123,6 +202,9 @@ Page({
             'num': 1,
             'attr': '[]'
         }
+        if (this.data.isAuthorization == false) {
+            this.goIndex()
+        } else {
         wx.showLoading();
         ajax.wxRequest('POST', 'cart/addCart', item,
             (res) => {
@@ -139,22 +221,22 @@ Page({
                     icon: "none"
                 })
             })
+        }
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        console.log(options)
         // options 中的scene需要使用decodeURIComponent才能获取到生成二维码时传入的scene
         var scene = decodeURIComponent(options.scene)//参数二维码传递过来的参数
         // var senceUid = scene.split("&")[0];
         // var senceRid = scene.split("&")[1];
         var that = this;
         // 分享者uid
-        app.globalData.shareUid=options.userId
+        app.globalData.shareUid=options.userId;
         var item = {
-            'user_id': app.globalData.userId,
-            'id': options.id
+            'id': options.id,
+            'user_id': options.userId
         }
         // 商品详情
         wx.showLoading();
@@ -188,7 +270,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+        this.authorization()
     },
 
     /**
@@ -227,7 +309,6 @@ Page({
         var that = this;
         var id = ops.target.dataset.id;
         var userId = app.globalData.userId;
-        console.log(id,userId)
         // if(ops.from==='button'){}
         return {
             title: '龙江银行积分商城',

@@ -27,20 +27,12 @@
     <!-- 声明弹窗 -->
     <view class='statement-bg' hidden='{{isShow}}'>
         <view class='statement'>
-            <!-- <statement id='statement' 
-                title='{{mztitle}}' 
-                content='{{content}}' 
-                read='《积分商城免责条款》'
-                btn_no='不同意' 
-                btn_ok='同意'
-                bind:read="_read"
-                bind:error="_error"  
-                bind:success="_success"> 
-            </statement> -->
             <view class='title'>{{mztitle}}</view>
-            <view class='content' hidden='{{isDetails}}'>{{content}}</view>
+            <view class='content' hidden='{{isDetails}}'>
+                <template is="wxParse" data="{{wxParseData:description.nodes}}"/>
+            </view>
             <view class='content-details' hidden='{{!isDetails}}'>
-                <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+                <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
             </view>
             <view class='details-btn' hidden='{{isDetails}}' catchtap='_read'>《积分商城免责条款》</view>
             <view class='box-btn'> 

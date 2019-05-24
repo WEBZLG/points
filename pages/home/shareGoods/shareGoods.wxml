@@ -1,4 +1,4 @@
-<!--pages/home/goodsDetails/goodsDetails.wxml-->
+<!--pages/home/shareGoods/shareGoods.wxml-->
 <import src="../../../utils/wxParse/wxParse.wxml" />
 <view>
     <view class='goods-box'>

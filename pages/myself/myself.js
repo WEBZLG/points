@@ -67,9 +67,11 @@ Page({
         ajax.wxRequest('POST', 'integralmall/sign', item,
             (res) => {
                 console.log(res)
+                wx.hideLoading();
                 if (res.code == 0) {
                     wx.showToast({
-                        title: '积分' + res.integral
+                        title: '积分' + res.data.integral,
+                        duration:2000
                     })
                     that.setData({
                         signText: "已签到",
@@ -81,7 +83,10 @@ Page({
                         icon: "none"
                     })
                 }
-                wx.hideLoading();
+                
+                setTimeout(function(){
+                    that.getUserInfo()
+                },2000)
             },
             (err) => {
                 console.log(err)

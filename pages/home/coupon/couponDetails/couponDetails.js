@@ -47,9 +47,10 @@ Page({
                     ajax.wxRequest('POST', 'vouchers/exchange', item,
                         (res) => {
                             // console.log(res)
+                            wx.hideLoading();
                             if(res.code==0){
                                 wx.showToast({
-                                    title: res.message,
+                                    title: res.message
                                 })
                                 setTimeout(function(){
                                     wx.navigateBack()
@@ -57,13 +58,14 @@ Page({
                             }else{
                                 wx.showToast({
                                     title: res.message,
-                                    icon:"none"
+                                    icon:"none",
+                                    duration: 2000
                                 })
                                 setTimeout(function () {
                                     wx.navigateBack()
                                 }, 2000) 
                             }
-                            wx.hideLoading();
+                            
                         },
                         (err) => {
                             // console.log(err)
@@ -92,7 +94,6 @@ Page({
             vouchersId: options.id
         })
         var item = {
-            user_id: app.globalData.userId,
             vouchers_id:options.id
         }
         wx.showLoading();

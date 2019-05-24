@@ -15,7 +15,6 @@ Page({
     phone:"",
     code:"",
     mztitle:"",//免责题头
-    content:"",//免责内容
     isDetails:false,//免责详情显示
     isShow:false//免责显示
   },
@@ -36,10 +35,10 @@ Page({
           (res) => {
               console.log(res)
               that.setData({
-                  mztitle:res.data.title,
-                  content: res.data.des
+                  mztitle:res.data.title
               })
-              WxParse.wxParse('article', 'html', res.data.content, this, 5);
+              WxParse.wxParse('content', 'html', res.data.content, this, 5);
+              WxParse.wxParse('description', 'html', res.data.des, this, 5);
               wx.hideLoading();
           },
           (err) => {

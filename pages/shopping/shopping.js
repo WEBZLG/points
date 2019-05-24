@@ -43,7 +43,7 @@ Page({
                 })       
             for (let i = 0; i < goodsList.length; i++) {
                 this.data.selectedArray.push(goodsList[i].cart_id)
-                // console.log(this.data.selectedArray)   
+                console.log(this.data.selectedArray)   
             }
         }else{
             this.setData({

@@ -84,11 +84,12 @@
 .reduce{
     height: 6rpx;
     width: 24rpx;
-    padding:9rpx 0;
+    padding:19rpx 10rpx;
 }
 .add{
     height: 24rpx;
     width: 24rpx;
+    padding: 10rpx;
 }
 .goods-num{
     width: 38rpx;

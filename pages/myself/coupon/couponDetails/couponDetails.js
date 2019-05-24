@@ -27,7 +27,7 @@ Page({
         wx.showLoading();
         ajax.wxRequest('POST', 'vouchers/detail', item,
             (res) => {
-                // console.log(res)
+                console.log(res)
                 that.setData({
                     couponDetails: res.data
                 })

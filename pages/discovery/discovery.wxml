@@ -1,6 +1,6 @@
 <!--pages/discovery/discovery.wxml-->
 <view class='container'>
-    <view class='shop-box'>
+    <view class='shop-box' wx:if="{{shopList.length!==0}}">
         <view class='title'>网点列表</view>
         <view class='shop-list'>
             <view class='shop-item'  wx:for="{{shopList}}" wx:key="{{index}}" data-id='{{item.id}}'  catchtap='shopDetails' >
@@ -20,5 +20,5 @@
             </view>
         </view>
     </view>
-    <view class='list-none' wx:if="{{shopList==[]}}">暂无数据</view>
+    <view class='list-none' wx:if="{{shopList.length==0}}">暂无数据</view>
 </view>

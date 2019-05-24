@@ -235,12 +235,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     this.setData({
-         userInfo: app.globalData.userInfo
-     });
-      this.getGoodsType();
-      this.getBanner();
-      this.getUserInfo()
+
   },
 
   /**
@@ -254,7 +249,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      this.setData({
+          userInfo: app.globalData.userInfo,
+          currentTab:0
+      });
+      this.getGoodsType();
+      this.getBanner();
+      this.getUserInfo()
   },
 
   /**
