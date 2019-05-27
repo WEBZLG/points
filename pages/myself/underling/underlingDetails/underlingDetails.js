@@ -20,6 +20,7 @@ Page({
         wx.showLoading();
         ajax.wxRequest('POST', 'user/issueIntegral', item,
             (res) => {
+                wx.hideLoading();
                 console.log(res)
                 if(res.code==0){
                     wx.showToast({
@@ -30,9 +31,10 @@ Page({
                         title: res.message,
                         icon:"none"
                     })
-                }
-                wx.hideLoading();
-                that.onLoad();
+                }   
+                setTimeout(function(){
+                    wx.navigateBack()
+                },2000)
             },
             (err) => {
                 console.log(err)

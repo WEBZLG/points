@@ -1,11 +1,5 @@
 <!--pages/myself/underling/underling.wxml-->
 <view class='underling-box'>
-    <!-- <view class='add-underling'>
-        <view class='add-img'>
-            <image src='../../../images/add_i.png'></image>
-        </view>
-        <text>添加下属</text>
-    </view> -->
     <view class='person-list'  wx:for="{{peopleList}}" wx:key="{{index}}" wx:if="{{peopleList!==''}}"   data-staffid="{{item.staff_id}}" catchtap='underlingDetails'>
         <view class='person-message'>
             <view class='head-img'>

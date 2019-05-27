@@ -15,7 +15,10 @@ Page({
         bank:"",//银行机关人员
         name:"",//客户姓名
         id:"",//客户id
-        money:""//存储金额
+        money:"",//存储金额
+        totalPoints:"",//总积分
+        ratioNum:"",//利率年数
+        ratioRatio:""//利率
     },
     // 获取输入值
     getName(e){
@@ -32,6 +35,7 @@ Page({
         this.setData({
             money: e.detail.value
         })
+        this.pointsTotal();
     },
     // 获取支行列表
     getBankList(){
@@ -70,7 +74,9 @@ Page({
                 console.log(res)
                 that.setData({
                     selectYear: res.data.list,
-                    ratio: res.data.list[0].ratio
+                    ratio: res.data.list[0].id,
+                    ratioRatio: res.data.list[0].ratio,
+                    ratioNum: res.data.list[0].num
                 })
                 wx.hideLoading();
             },
@@ -106,6 +112,7 @@ Page({
         ajax.wxRequest('POST', 'user/applyIntegral', item,
             (res) => {
                 console.log(res)
+                wx.hideLoading();
                 if(res.code==0){
                     wx.showToast({
                         title: '申请成功！',
@@ -118,7 +125,7 @@ Page({
                         title: '申请失败！',
                     })
                 }
-                wx.hideLoading();
+                
             },
             (err) => {
                 console.log(err)
@@ -140,7 +147,17 @@ Page({
     yearPickerChange(e) {
         this.setData({
             indexYear: e.detail.value,
-            ratio: this.data.selectYear[e.detail.value].ratio
+            ratio: this.data.selectYear[e.detail.value].id,
+            ratioRatio: this.data.selectYear[e.detail.value].ratio,
+            ratioNum: this.data.selectYear[e.detail.value].num
+        })
+        this.pointsTotal();
+    },
+    // 积分计算
+    pointsTotal(){
+        var that = this;
+        this.setData({
+            totalPoints: that.data.money * that.data.ratioRatio * that.data.ratioNum
         })
     },
     /**

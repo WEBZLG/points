@@ -12,7 +12,10 @@ Page({
         ratio:"",//比率
         name:"",//客户姓名
         id:"",//客户id
-        money:""//存储金额
+        money:"",//存储金额
+        totalPoints: "",//总积分
+        ratioNum: "",//利率年数
+        ratioRatio: ""//利率
     },
     // 获取年限比率
     getYear() {
@@ -26,7 +29,9 @@ Page({
                 console.log(res)
                 that.setData({
                     selectYear: res.data.list,
-                    ratio:res.data.list[0].ratio
+                    ratio:res.data.list[0].ratio,
+                    ratioRatio: res.data.list[0].ratio,
+                    ratioNum: res.data.list[0].num
                 })
                 wx.hideLoading();
             },
@@ -41,9 +46,12 @@ Page({
     },
     yearPickerChange(e) {
         this.setData({
-            index: e.detail.value,
-            ratio: this.data.selectYear[e.detail.value].ratio
+            indexYear: e.detail.value,
+            ratio: this.data.selectYear[e.detail.value].id,
+            ratioRatio: this.data.selectYear[e.detail.value].ratio,
+            ratioNum: this.data.selectYear[e.detail.value].num
         })
+        this.pointsTotal();
     },
     // 获取输入值
     getName(e) {
@@ -60,6 +68,7 @@ Page({
         this.setData({
             money: e.detail.value
         })
+        this.pointsTotal();
     },
     //申请积分
     applyPoints() {
@@ -107,6 +116,14 @@ Page({
                     })
                 })
         }
+    },
+    // 积分计算
+    pointsTotal() {
+        var that = this;
+        this.setData({
+            totalPoints: that.data.money * that.data.ratioRatio * that.data.ratioNum
+        })
+        console.log(this.data.totalPoints)
     },
     /**
      * 生命周期函数--监听页面加载

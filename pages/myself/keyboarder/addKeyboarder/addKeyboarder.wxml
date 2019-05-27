@@ -22,6 +22,6 @@
             </view>
         </view>
     </view>
-    <view class='points'>积分：0</view>
+    <view class='points'>积分：{{totalPoints}}</view>
     <view class='apply-btn' catchtap='applyPoints'>申请积分</view>
 </view>
