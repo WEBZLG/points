@@ -13,7 +13,7 @@
         <swiper autoplay="{{true}}" indicator-dots="{{true}}" indicator-color="rgba(255,255,255,1)" indicator-active-color="rgba(6,85,155,1)" circular="{{true}}">
             <block wx:for="{{bannerList}}" wx:key="{{index}}">
                 <swiper-item>
-                    <image src="{{item.pic_url}}" class="slide-image" />
+                    <image src="{{item.pic_url}}" data-outurl="{{item.page_url}}"  class="slide-image" catchtap='jumpOut'/>
                 </swiper-item>
             </block>
         </swiper>

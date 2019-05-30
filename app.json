@@ -27,7 +27,8 @@
         "pages/myself/officeStaff/officeStaffDetails/officeStaffDetails",
         "pages/myself/keyboarder/addKeyboarder/addKeyboarder",
         "pages/myself/officeStaff/addOfficeStaff/addOfficeStaff",
-        "pages/home/shareGoods/shareGoods"
+        "pages/home/shareGoods/shareGoods",
+        "pages/home/webView/webView"
     ],
     "permission": {
         "scope.userLocation": {

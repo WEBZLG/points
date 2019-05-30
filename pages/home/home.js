@@ -163,7 +163,7 @@ Page({
         wx.showLoading();
         ajax.wxRequest('POST', 'integralmall/banner', item,
             (res) => {
-                // console.log(res)
+                console.log(res)
                 that.setData({
                     bannerList:res.data.list
                 })
@@ -177,6 +177,14 @@ Page({
                     icon: "none"
                 })
             })
+    },
+    // 轮播图外链
+    jumpOut(e){
+        var outUrl = e.currentTarget.dataset.outurl;
+        console.log(outUrl)
+        wx.redirectTo({
+            url: './webView/webView?outUrl=' + outUrl,
+        })
     },
     //添加购物车
     addCar(e) {

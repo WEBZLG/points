@@ -17,11 +17,11 @@
             <text class='label'>手机号：</text>
             <input placeholder='请输入手机号' bindinput='getPhone'></input>
         </view>
-        <view class='item'>
+        <!-- <view class='item'>
             <text class='label'>验证码：</text>
             <input class='code' placeholder='短信验证码' bindinput='getCodeNum'></input>
             <view class='getcode {{isDis}}' catchtap='getcode' >{{codeText}}</view>
-        </view>
+        </view> -->
     </view>
     <view  catchtap='sendData' class='submit'> 提交认证</view>    
     <!-- 声明弹窗 -->

@@ -28,6 +28,13 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
         var that = this;
         var item = {
             'user_id': app.globalData.userId
@@ -37,7 +44,7 @@ Page({
             (res) => {
                 console.log(res)
                 that.setData({
-                    peopleList:res.data
+                    peopleList: res.data
                 })
                 wx.hideLoading();
             },
@@ -49,13 +56,6 @@ Page({
                     icon: "none"
                 })
             })
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
     },
 
     /**

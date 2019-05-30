@@ -24,7 +24,6 @@ Page({
    */
   onLoad: function (options) {
       var that = this;
-    //   this.selectComponent("#statement").showPopup();
       var item = {
           'user_id': app.globalData.userId,
           'id':6
@@ -123,7 +122,7 @@ Page({
         var idCard = this.data.idCard;
         var phone = this.data.phone;
         var code = this.data.code;
-        if (name == '' || idCard == '' || phone == '' || code == '') {
+        if (name == '' || idCard == '' || phone == '' ) {
             wx.showToast({
                 title: '请填写完整信息',
                 icon: "none"
@@ -163,7 +162,6 @@ Page({
         }
     },
     _success() {
-        // this.selectComponent("#statement").hidePopup();
         this.setData({
             isShow: true
         })
