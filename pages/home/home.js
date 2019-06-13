@@ -104,12 +104,15 @@ Page({
         wx.showLoading();
         ajax.wxRequest('POST', 'integral_cat/lists', item,
             (res) => {
-                console.log(res)
+                wx.hideLoading();
+                console.log(res.data.list)
                 that.setData({
                     goodsTypeList:res.data.list
                 })
-                that.getGoodsList(res.data.list[0].id)
-                wx.hideLoading();
+                if(res.data.list.length!==0){
+                    that.getGoodsList(res.data.list[0].id)
+                }
+                
             },
             (err) => {
                 console.log(err)

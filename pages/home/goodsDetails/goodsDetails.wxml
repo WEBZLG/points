@@ -38,7 +38,7 @@
         </view>
         <view class='goods-details'>
             <view class='g-title'>商品详情</view>
-            <view>
+            <view class='description'>
                 <template is="wxParse" data="{{wxParseData:article.nodes}}" />
             </view>
         </view>

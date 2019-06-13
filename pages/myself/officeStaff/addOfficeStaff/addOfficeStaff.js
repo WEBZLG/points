@@ -18,7 +18,8 @@ Page({
         money:"",//存储金额
         totalPoints:"",//总积分
         ratioNum:"",//利率年数
-        ratioRatio:""//利率
+        ratioRatio:"",//利率
+        showYear:"1年"
     },
     // 获取输入值
     getName(e){
@@ -149,7 +150,8 @@ Page({
             indexYear: e.detail.value,
             ratio: this.data.selectYear[e.detail.value].id,
             ratioRatio: this.data.selectYear[e.detail.value].ratio,
-            ratioNum: this.data.selectYear[e.detail.value].num
+            ratioNum: this.data.selectYear[e.detail.value].num,
+            showYear: this.data.selectYear[e.detail.value].year_str
         })
         this.pointsTotal();
     },

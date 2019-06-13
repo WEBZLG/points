@@ -52,6 +52,12 @@ Page({
     // 获取验证码
     getcode: function () {
         var that = this;
+        if (that.data.phone==""){
+            wx.showToast({
+                title: '请输入手机号码',
+                icon:"none"
+            })
+        }else{
         wx.showLoading();
         var item = {
             'user_id': app.globalData.userId,
@@ -61,11 +67,11 @@ Page({
         wx.showLoading();
         ajax.wxRequest('POST', 'sms/sendCode', item,
             (res) => {
+                wx.hideLoading();
                 console.log(res)
                 wx.showToast({
                     title: '发送成功！'
                 });
-                wx.hideLoading();
             },
             (err) => {
                 console.log(err)
@@ -92,6 +98,7 @@ Page({
 
             }
         }, 1000)
+        }
     },
     // 获取输入数据
     getName: function (e) {
@@ -122,7 +129,7 @@ Page({
         var idCard = this.data.idCard;
         var phone = this.data.phone;
         var code = this.data.code;
-        if (name == '' || idCard == '' || phone == '' ) {
+        if (name == '' || idCard == '' || phone == ''||code=="" ) {
             wx.showToast({
                 title: '请填写完整信息',
                 icon: "none"

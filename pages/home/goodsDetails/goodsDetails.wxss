@@ -159,3 +159,6 @@ button::after {
     margin: 30rpx auto;
     border-radius: 15rpx;
 }
+.description{
+    padding: 30rpx;
+}

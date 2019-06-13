@@ -17,7 +17,7 @@
             <text>存款年限</text>
             <view class="section">
                 <picker bindchange="yearPickerChange" value="{{index}}" range="{{selectYear}}" range-key="year_str">
-                    <view class="picker">{{selectYear[index].year_str}}</view>
+                    <view class="picker">{{showYear}}</view>
                 </picker>
             </view>
         </view>

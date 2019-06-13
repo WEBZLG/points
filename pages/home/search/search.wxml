@@ -1,7 +1,7 @@
 <!--pages/home/search/search.wxml-->
 <view class='container'>
     <view class='goods-box'>
-        <view class='goods-list' wx:if="{{goodsList!==[]}}">
+        <view class='goods-list' wx:if="{{goodsList.length!==0}}">
             <view class='goods-item' wx:for="{{goodsList}}" wx:key="{{index}}" data-id='{{item.id}}' bindtap='goodsDetails'>
                 <view class='goods-img'>
                     <image src='{{item.cover_pic}}'></image>
@@ -19,6 +19,6 @@
             </view>      
         </view>       
     </view>
-    <view class='list-none' wx:if="{{goodsList==[]}}">暂无数据</view>
+    <view class='list-none' wx:if="{{goodsList.length==0}}">暂无数据</view>
 </view>
 

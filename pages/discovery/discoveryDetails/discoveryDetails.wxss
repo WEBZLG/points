@@ -19,4 +19,5 @@ swiper{
 }
 .shop-dsecription{
     background-color: #fff;
+    padding: 30rpx;
 }

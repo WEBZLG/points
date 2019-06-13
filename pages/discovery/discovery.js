@@ -25,7 +25,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onShow: function(options) {
         var that = this;
         // 获取当前位置
 
@@ -51,11 +51,11 @@ Page({
                     wx.showLoading();
                     ajax.wxRequest('POST', 'integralmall/shop', item,
                         (res) => {
+                            wx.hideLoading();
                             console.log(res)
                             that.setData({
                                 shopList: res.data.data
                             })
-                            wx.hideLoading();
                         },
                         (err) => {
                             console.log(err)
@@ -133,12 +133,6 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function() {
-
-    },
 
     /**
      * 生命周期函数--监听页面隐藏
