@@ -159,7 +159,8 @@ Page({
     pointsTotal(){
         var that = this;
         this.setData({
-            totalPoints: that.data.money * that.data.ratioRatio * that.data.ratioNum
+            // totalPoints: that.data.money * that.data.ratioRatio * that.data.ratioNum
+            totalPoints: that.data.money * that.data.ratioRatio
         })
     },
     /**
