@@ -154,9 +154,14 @@ button::after {
     margin-top:30rpx;
 }
 #shareCanvas{
-    height: 900rpx;
+    position: fixed;
+    top: 40rpx;
+    left: 0;
+    right: 0;
+    margin-left: 300rpx;
+    height: 780rpx;
     width: 600rpx;
-    margin: 30rpx auto;
+    margin: 50rpx auto 0;
     border-radius: 15rpx;
 }
 .description{

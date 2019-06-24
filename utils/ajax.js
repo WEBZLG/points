@@ -1,6 +1,5 @@
 
-// var serverPath = "http://192.168.1.200:1111/api/"
-var serverPath = "http://demogolf.top/api/"
+var serverPath = "https://www.longjiangbank.club/api/"
 
 /**
 * 封装wx.request请求

@@ -13,8 +13,9 @@ Page({
         goodsDesc: '',
         modelShow: true,
         canvasShow:true,
-        windowWidth: wx.getSystemInfoSync().windowWidth,
-        windowHeight: wx.getSystemInfoSync().screenHeight,
+        newbackpic:"",
+        newpicstr:"",
+        codeUrl:""
     },
     // 去首页
     goHome() {
@@ -248,57 +249,156 @@ Page({
             }
         }
     },
-    // 分享朋友圈
-    sharePyq(){
-        var that = this;
-        this.cancel();
-        wx.showLoading()
-        const wxGetImageInfo = promisify(wx.getImageInfo)
-        Promise.all([
-            wxGetImageInfo({
-                src: 'http://k.zol-img.com.cn/sjbbs/7692/a7691515_s.jpg'
-            }),
-            wxGetImageInfo({
-                src: 'http://pic40.nipic.com/20140412/18428321_144447597175_2.jpg'
+    // 生成海报
+    getImage: function (url) {
+        return new Promise((resolve, reject) => {
+            wx.getImageInfo({
+                src: url,
+                success: function (res) {
+                    resolve(res)
+                },
+                fail: function () {
+                    reject("")
+                }
             })
-        ]).then(res => {
-            that.setData({
-                canvasShow: false
-            })
-            const ctx = wx.createCanvasContext('shareCanvas')
-            let wW = that.data.windowWidth;
-            let wH = that.data.windowHeight;
-            // 底图
-            ctx.drawImage(res[0].path, 0, 0, wW - 100, wH - 210);
-            // ctx.drawImage(res[0].path, 0, 0, 600, 900)
-
-            // 作者名称
-            ctx.setTextAlign('center')    // 文字居中
-            ctx.setFillStyle('#fff')  // 文字颜色：黑色
-            ctx.setFontSize(16)         // 文字字号：22px
-            ctx.fillText("我在积分商城发现一个宝贝，扫码注册既有积分相送哦！", 100 / 2, 250)
-            // 小程序码
-            const qrImgSize = 180
-            // ctx.drawImage(qr.path, wW / 2, wH / 2 - qr.height * 0.1 / 2, qr.width * 0.1, qr.height * 0.1)
-            ctx.drawImage(res[1].path, (600 - qrImgSize) / 2, 530, qrImgSize, qrImgSize)
-            ctx.stroke()
-            ctx.draw()
-            wx.hideLoading()
         })
     },
-    savePhoto(){
-        const wxCanvasToTempFilePath = promisify(wx.canvasToTempFilePath)
-        const wxSaveImageToPhotosAlbum = promisify(wx.saveImageToPhotosAlbum)
-        wxCanvasToTempFilePath({
-            canvasId: 'shareCanvas'
-        }, this).then(res => {
-            return wxSaveImageToPhotosAlbum({
-                filePath: res.tempFilePath
+    getImageAll: function (image_src) {
+        let that = this;
+        var all = [];
+        image_src.map(function (item) {
+            all.push(that.getImage(item))
+        })
+        return Promise.all(all)
+    },
+    //创建
+    sharePyq: function (e) {
+        wx.showLoading()
+        var that = this;
+        that.cancel();
+        var item = {
+            'user_id': app.globalData.userId,
+            'goods_id':e.currentTarget.dataset.id
+        }
+        wx.showLoading();
+        ajax.wxRequest('POST', 'share/qrcode', item,
+            (res) => {
+                var url = res.data.url;
+                var qrbg = res.data.qrcode_bg;
+                //获取网络图片本地路径
+                wx.getImageInfo({
+                    src: that.data.goodsDetails.pic_list[0],
+                    success: function (res) {
+                        that.setData({
+                            newbackpic: res.path,
+                            codeUrl:qrbg
+                        });
+                        wx.getImageInfo({
+                            src: url,
+                            success: function (res) {
+                                that.setData({
+                                    newpicstr: res.path
+                                })
+                                let bg = that.data.newbackpic;
+                                let qr = that.data.newpicstr;
+                                that.getImageAll([bg, qr, qrbg]).then((res) => {
+                                    console.log(res)
+                                    wx.getImageInfo({
+                                        src: qrbg,
+                                        success: function (res) {
+
+                                        }
+                                    })
+                                    const ctx = wx.createCanvasContext('shareCanvas')
+                                    // 底图
+                                    ctx.drawImage(res[0].path, 0, 0, 315, 330);
+
+                                    // 背景
+                                    ctx.drawImage(res[2].path, 0, 320, 300, 100)
+                                    // 文字
+                                    ctx.setTextAlign('center') // 文字居中
+                                    ctx.setFillStyle('#fff') // 文字颜色
+                                    ctx.setFontSize(16) // 文字字号
+                                    ctx.fillText("我在积分商城发现一个宝贝", 110, 350)
+                                    ctx.fillText("扫码注册即有积分相送哦！", 110, 370)
+                                    // 小程序码
+                                    ctx.drawImage(res[1].path, 210, 280, 80, 80)
+                                    ctx.stroke()
+                                    ctx.draw()
+                                    wx.hideLoading()
+                                    that.setData({
+                                        canvasShow: false
+                                    })
+                                    wx.showModal({
+                                        title: '提示',
+                                        content: '图片绘制完成请保存到相册',
+                                        showCancel: false,
+                                        confirmText: "点击保存",
+                                        success: function (res) {
+                                            that.save()
+                                        }
+                                    })
+                                })
+                            },
+                            fail: function (res) {
+                            }
+                        });
+                    },
+                    fail: function (res) {
+                    }
+                });
+                that.setData({
+                    
+                })
+
+            },
+            (err) => {
+                console.log(err)
+                wx.hideLoading();
+                wx.showToast({
+                    title: '数据加载失败' + err,
+                    icon: "none"
+                })
             })
-        }).then(res => {
-            wx.showToast({
-                title: '已保存到相册'
-            })
+
+    },
+    //保存
+    save: function () {
+        var that = this;
+        wx.canvasToTempFilePath({ //canvas 生成图片 生成临时路径
+            canvasId: 'shareCanvas',
+            success: function (res) {
+                //console.log(res)
+                wx.saveImageToPhotosAlbum({ //下载图片
+                    filePath: res.tempFilePath,
+                    success: function () {
+                        wx.showToast({
+                            title: "图片已保存到相册",
+                            icon: "success",
+                        });
+                        setTimeout(function () {
+                            that.setData({
+                                canvasShow: true
+                            })
+
+                            var item = {
+                                'user_id': app.globalData.userId,
+                                'path': that.data.codeUrl
+                            }
+                            ajax.wxRequest('POST', 'share/un_qrcode', item,
+                                (res) => { },
+                                (err) => {})
+                        }, 3000)
+                    },
+                    fail(err) {
+                        wx.showToast({
+                            title: '请打开相册储存权限',
+                            icon: "none"
+                        })
+                    }
+                })
+            }
         })
     }
+
 })

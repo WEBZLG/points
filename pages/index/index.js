@@ -116,13 +116,13 @@ Page({
                             ajax.wxRequest('POST', 'user/updateInfo', item,
                                 (res) => {
                                     console.log(res)
+                                    wx.reLaunch({
+                                        url: '../home/home',
+                                    })
                                 },
                                 (err) => {
                                     console.log(err)
                                 })
-                            wx.reLaunch({
-                                url: '../home/home',
-                            })
                         },
                         (err) => {
                             wx.showToast({
