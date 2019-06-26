@@ -291,7 +291,7 @@ Page({
                     success: function (res) {
                         that.setData({
                             newbackpic: res.path,
-                            codeUrl:qrbg
+                            codeUrl: url
                         });
                         wx.getImageInfo({
                             src: url,

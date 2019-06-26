@@ -91,7 +91,7 @@ Page({
                     })
 
                 }else{
-
+                    this.goIndex();
                 }
             }
         })
@@ -230,14 +230,16 @@ Page({
     onLoad: function(options) {
         // options 中的scene需要使用decodeURIComponent才能获取到生成二维码时传入的scene
         var scene = decodeURIComponent(options.scene)//参数二维码传递过来的参数
-        // var senceUid = scene.split("&")[0];
-        // var senceRid = scene.split("&")[1];
+        console.log(scene)
+        var senceId = scene.split("&")[0].split("=")[1];
+        var senceUid = scene.split("&")[1].split("=")[1];
+        console.log(senceId, senceUid)
         var that = this;
         // 分享者uid
-        app.globalData.shareUid=options.userId;
+        app.globalData.shareUid = senceUid;
         var item = {
-            'id': options.id,
-            'user_id': options.userId
+            'id': senceId,
+            'user_id': senceUid
         }
         // 商品详情
         wx.showLoading();
@@ -271,7 +273,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-        this.authorization()
+        this.authorization();
     },
 
     /**
